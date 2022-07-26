@@ -21,6 +21,7 @@ API_key = api_file.readlines()
 api_file.close()
 API_key_html = "&key=" + API_key[0]
 
+# create the dir if it does not exist
 def create_dir_if_not_exist(path):
     if not os.path.exists('path'):
         try:
@@ -35,8 +36,6 @@ def init_dir():
     path = os.path.join(parent_dir, "dataverse_datasets")
     create_dir_if_not_exist(path)
 
-    
-        
 ##Download to folder
 def download(dir_name, global_id):
     #create the sub dir
@@ -62,31 +61,32 @@ def download(dir_name, global_id):
                 zip_ref.extractall(extract_path)
 
 
-init_dir()
+def search_and_bulk_dl():
+    init_dir()
+    rows = 10
+    start = 0
+    page = 1
+    condition = True # emulate do-while
+    while (condition):
+        url = base + '/api/search?q=' + search_term + "&type=dataset&type=file&show_entity_ids=true" + API_key_html + "&start=" + str(start)
+        response = requests.get(url)
+        data = response.json()
+        if data['status'] != 'OK':
+            print(data['status'])
+            sys.exit()
+        total = data['data']['total_count']
+        print("=== Page", page, "===")
+        print("start:", start, " total:", total)
+        for i in data['data']['items']:
+            print("- ", i['name'], "(" + i['type'] + ")")
+            download(i['name'], i['global_id'])
+            pass
+        start = start + rows
+        page += 1
+        condition = start < total
+        condition = False #For testing only and artificial limiter
 
-rows = 10
-start = 0
-page = 1
-condition = True # emulate do-while
-while (condition):
-    url = base + '/api/search?q=' + search_term + "&type=dataset&type=file&show_entity_ids=true" + API_key_html + "&start=" + str(start)
-    response = requests.get(url)
-    data = response.json()
-    if data['status'] != 'OK':
-        print(data['status'])
-        sys.exit()
-    total = data['data']['total_count']
-    print("=== Page", page, "===")
-    print("start:", start, " total:", total)
-    for i in data['data']['items']:
-        print("- ", i['name'], "(" + i['type'] + ")")
-        #print(i['entity_id'])
-        #print("global_id:", i['global_id'])
-        #print("url:", i['url'])
-        download(i['name'], i['global_id'])
-        pass
-    start = start + rows
-    page += 1
-    condition = start < total
-    #For testing only and artificial limiter
-    condition = False
+def main():
+    search_and_bulk_dl()
+
+main()
