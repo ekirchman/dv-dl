@@ -49,6 +49,7 @@ def download(dir_name, global_id, db_id):
     #os.chdir(path)
     dl_url = base + '/api/access/dataset/:persistentId?persistentId=' + global_id
     print(dl_url)
+    
 
 
 init_dir()
