@@ -22,6 +22,7 @@ URL -  download the dataset matching which matches the given URL
 ## Goal Plans Ideas
 
 - [ ] Be able to download original files (files must be downloaded individually)
+- [ ] Group command line arguments
 - [ ] Check file MD5sum when doing individual downloads
 - [ ] More robust search features
 - [ ] save location

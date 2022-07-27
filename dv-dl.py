@@ -116,8 +116,24 @@ def main():
 
     # create the parser for the "search" command
     parser_search = subparsers.add_parser('search', help='Search and download datasets. Defaults to generic query')
+
+    # Search params
+    # https://guides.dataverse.org/en/latest/api/search.html#id1
     parser_search.add_argument('--title', help='Filter by title')
+    # implement later
+    #parser_search.add_argument('--type', help='Filter by type. Type can be Dataverse, dataset or file')
+    parser_search.add_argument('--subtree', help='The identifier of the Dataverse collection to which the search should be narrowed')
+    parser_search.add_argument('--sort', help='Sort results. Supported flags are name and date')
+    parser_search.add_argument('--order', choices=['asc', 'desc'], help='The order by which to sort. Can be asc or desc')
+    parser_search.add_argument('--per_page', type=int, default=10, help='The number of results to return per request. The default is 10, the max is 1000')
+    parser_search.add_argument('--start', type=int, help='A cursor for paging through search results')
+    parser_search.add_argument('--fq', help='Filter query')
+
+    # Extended search params for dv-dl
+    
     parser_search.set_defaults(func=subcmd_search)
+    # TODO
+    parser_search.add_argument('--print', help='Print dataset details')
     
     # create the parser for the "download" command
     parser_download = subparsers.add_parser('download', help='Download individual datasets')
