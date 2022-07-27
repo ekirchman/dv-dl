@@ -15,6 +15,10 @@ Create a `.api_key` file in the same directory as the dv-dl.py and paste in your
 
 `python3 dv-dl.py`
 
+match - search for datasets and download
+doi - download the dataset matching which matches the given DOI
+URL -  download the dataset matching which matches the given URL
+
 ## Goal Plans Ideas
 
 - [ ] Be able to download original files (files must be downloaded individually)

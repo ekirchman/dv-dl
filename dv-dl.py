@@ -89,25 +89,50 @@ def search_and_bulk_dl():
         condition = start < total
         condition = False #For testing only and artificial limiter
 
+def parse_URL_get_DOI():
+    # TODO
+    sys.exit()
+    pass
+
+def subcmd_search(args):
+    #print("subcmd_search")
+    search_and_bulk_dl()
+
+def subcmd_download(args):
+    #print("subcmd_download")
+    path = os.getcwd()
+    if args.doi:
+        download(path, args.doi)
+    elif args.url:
+        DOI = parse_URL_get_DOI()
+        download(path, DOI)
+
 def main():
+    
+    # create the top-level parser
     parser = argparse.ArgumentParser()
     parser = argparse.ArgumentParser(description='A download tool for Dataverse instances')
-    group = parser.add_mutually_exclusive_group()
-    group.add_argument("-m","--match", help="generic search query",
-                    action="store_true")
-    group.add_argument("--doi", help="download by DOI",
-                       action="store")
-    
-    args = parser.parse_args()
-    if args.match:
-        search_and_bulk_dl()
-    elif args.doi:
-        path = os.getcwd()
-        download(path, args.doi)
-    else:
-        #print usage since no args were given
-        parser.print_help()
-    
+    subparsers = parser.add_subparsers(help='sub-command help')
 
+    # create the parser for the "search" command
+    parser_search = subparsers.add_parser('search', help='Search and download datasets. Defaults to generic query')
+    parser_search.add_argument('--title', help='Filter by title')
+    parser_search.set_defaults(func=subcmd_search)
+    
+    # create the parser for the "download" command
+    parser_download = subparsers.add_parser('download', help='Download individual datasets')
+    parser_download.set_defaults(func=subcmd_download)
+
+    # Create a group for mutally exclusive options DOI and URL for download subcommand
+    group_download = parser_download.add_mutually_exclusive_group(required=True)
+    group_download.add_argument('--doi',  help='Download by DOI (or handle)')
+    group_download.add_argument('--url',  help='Download by URL ')
+
+    #calls subcmd_download, subcmd_search, or any other subcmd_* function created
+    args = parser.parse_args()
+    if args.func:
+        args.func(args)
+    
+    
 #Start script
 main()
