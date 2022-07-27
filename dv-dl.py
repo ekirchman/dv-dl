@@ -3,12 +3,15 @@ import json
 import pprint
 import os
 import re
-import sys #sys.exit()
+import sys #sys.exit() and calling wget
 import zipfile
+import argparse
 
+# default values 
 base = 'https://dataverse.unc.edu'
 search_term = 'Harris+1973+Nuclear+Power+Survey+study+no+2345'
 unzip = True
+clobber = False
 
 # Read in API Key
 try:
@@ -87,6 +90,24 @@ def search_and_bulk_dl():
         condition = False #For testing only and artificial limiter
 
 def main():
-    search_and_bulk_dl()
+    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description='A download tool for Dataverse instances')
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument("-m","--match", help="generic search query",
+                    action="store_true")
+    group.add_argument("--doi", help="download by DOI",
+                       action="store")
+    
+    args = parser.parse_args()
+    if args.match:
+        search_and_bulk_dl()
+    elif args.doi:
+        path = os.getcwd()
+        download(path, args.doi)
+    else:
+        #print usage since no args were given
+        parser.print_help()
+    
 
+#Start script
 main()

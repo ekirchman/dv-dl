@@ -14,3 +14,12 @@ Create a `.api_key` file in the same directory as the dv-dl.py and paste in your
 ## Usage
 
 `python3 dv-dl.py`
+
+## Goal Plans Ideas
+
+- [ ] Be able to download original files (files must be downloaded individually)
+- [ ] Check file MD5sum when doing individual downloads
+- [ ] More robust search features
+- [ ] save location
+- [ ] Options for wget or pydataverse downloads
+- [ ] TUI/GUI

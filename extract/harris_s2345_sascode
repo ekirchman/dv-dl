@@ -1,0 +1,4107 @@
+PROC FORMAT LIBRARY=LIBRARY CNTLOUT=SAS.FORMATS;
+VALUE YESNO 1='Yes' 0='No';
+VALUE S11Z      1 = 'East'
+                2 = 'East'
+                3 = 'South'
+                4 = 'South'
+                5 = 'Midwest'
+                6 = 'Midwest'
+                7 = 'West'
+                8 = 'West';
+VALUE S13Z      1 = 'Central City'
+                2 = 'Suburb'
+                3 = 'Town'
+                4 = 'Rural';
+VALUE Q1AZ      1 = 'Very serious'
+                2 = 'Somewhat serious'
+                3 = 'Not serious at all'
+                4 = 'Not sure';
+VALUE Q1C_1Z    1 = 'Very Serious'
+                2 = 'Somewhat Serious'
+                3 = 'Not Serious at all'
+                4 = 'Not Sure';
+VALUE Q1D_1Z    1 = 'Few Months'
+                2 = '1 yr'
+                3 = '2-5 yrs'
+                4 = '6-10 yrs'
+                5 = 'Over 10 yrs'
+                6 = 'Not Sure';
+VALUE Q2AZ      1 = 'Prices will not go up'
+                2 = 'Prices will go up moderately'
+                3 = 'Prices wll go up sharply'
+                4 = 'Not sure';
+VALUE Q2B_1Z    1 = 'Favor'
+                2 = 'Oppose'
+                3 = 'Not sure';
+VALUE Q2C_1Z    1 = 'Would be shortage'
+                2 = 'No shortage'
+                3 = 'Not sure';
+VALUE Q3_1Z     1 = 'Favor'
+                2 = 'Oppose'
+                3 = 'Not sure';
+VALUE Q4A_1Z    1 = 'Very Careful'
+                2 = 'Somewhat Careful'
+                3 = 'Somewhat Wasteful'
+                4 = 'Very Wasteful'
+                5 = 'Not Sure';
+VALUE Q4B_1Z    1 = 'Serious Handicap'
+                2 = 'Minor Problem'
+                3 = 'Not a Problem at All'
+                4 = 'Not Sure';
+VALUE Q4CZ      1 = 'Mainly federal government'
+                2 = 'Mainly state government'
+                3 = 'Mainly industry'
+                4 = 'Mainly public to cut down on use'
+                5 = 'Simply by increasing the energy supply'
+                6 = 'Other (specify)'
+                7 = 'Not sure';
+VALUE Q5AZ      1 = 'Increase'
+                2 = 'Decrease'
+                3 = 'Keep about same as is'
+                4 = 'Not sure';
+VALUE Q5B_1Z    1 = 'Favor'
+                2 = 'Oppose'
+                3 = 'Not Sure';
+VALUE Q5C_1Z    1 = 'Agree'
+                2 = 'Disagree'
+                3 = 'Not Sure';
+VALUE Q6A_1Z    1 = 'Excellent'
+                2 = 'Pretty good'
+                3 = 'Only fair'
+                4 = 'Poor'
+                5 = 'Not sure';
+VALUE Q6B_1Z    1 = 'A Great Deal'
+                2 = 'Only Some'
+                3 = 'Hardly Any'
+                4 = 'Not Sure';
+VALUE Q6C_1Z    1 = 'Lack of Planning'
+                2 = 'Increasd Use by Public'
+                3 = 'Increased Use by Industry'
+                4 = 'Not Sure';
+VALUE Q6D_1Z    1 = 'Lack of plannin by private industry'
+                2 = 'Lack of planning by government'
+                3 = 'Not sure';
+VALUE Q6E_1Z    1 = 'Lack of natural resources'
+                2 = 'Inefficient use of available resources'
+                3 = 'Not sure';
+VALUE Q6FZ      1 = 'Seen/heard'
+                2 = 'Not seen/heard'
+                3 = 'Not sure';
+VALUE Q6HZ      1 = 'Favorable'
+                2 = 'Unfavorable'
+                3 = 'Both (vol )'
+                4 = 'Not sure';
+VALUE Q6J_1Z    1 = 'Agree'
+                2 = 'Disagree'
+                3 = 'Not sure';
+VALUE Q7AZ      1 = 'Excellent'
+                2 = 'Pretty good'
+                3 = 'Only fair'
+                4 = 'Poor'
+                5 = 'Not sure';
+VALUE Q7BZ      1 = 'Seen reasonably ahead'
+                2 = 'Slow to recognize'
+                3 = 'Not sure';
+VALUE Q7C_1Z    1 = 'Favor'
+                2 = 'Oppose'
+                3 = 'Not Sure';
+VALUE Q8A_1Z    1 = 'Agree'
+                2 = 'Disagree'
+                3 = 'Not Sure';
+VALUE Q8B_1Z    1 = 'Favor'
+                2 = 'Oppose'
+                3 = 'Not Sure';
+VALUE Q9A_1Z    1 = 'Major responsibility'
+                2 = 'Minor responsibility'
+                3 = 'No responsibility'
+                4 = 'Not sure';
+VALUE Q9B_1Z    1 = 'Major Part'
+                2 = 'Minor Part'
+                3 = 'Take no Part'
+                4 = 'Not Sure';
+VALUE Q10_1Z    1 = 'Use'
+                2 = 'Don t Use'
+                3 = 'Not Sure';
+VALUE Q11AZ     1 = 'Japanese'
+                2 = 'American'
+                3 = 'Not sure';
+VALUE P1AZ      1 = 'Excellent'
+                2 = 'Pretty good'
+                3 = 'Only fair'
+                4 = 'Poor'
+                5 = 'Not sure';
+VALUE P1B_1Z    1 = 'Excellent'
+                2 = 'Pretty Good'
+                3 = 'Only Fair'
+                4 = 'Poor'
+                5 = 'Not Sure';
+VALUE P1DZ      1 = 'Gave convincing proof'
+                2 = 'Did not do that'
+                3 = 'Not sure';
+VALUE P1EZ      1 = 'Gave convincing proof'
+                2 = 'Did not do that'
+                3 = 'Not sure';
+VALUE P1FZ      1 = 'Frank and honest'
+                2 = 'Withheld important information'
+                3 = 'Not sure';
+VALUE P1GZ      1 = 'Knew about cover-up'
+                2 = 'Did not know'
+                3 = 'Not sure';
+VALUE P1HZ      1 = 'Excellent'
+                2 = 'Pretty good'
+                3 = 'Only fair'
+                4 = 'Poor'
+                5 = 'Not sure';
+VALUE P1I_1Z    1 = 'Agree'
+                2 = 'Disagree'
+                3 = 'Not Sure';
+VALUE P1JZ      1 = 'Should resign'
+                2 = 'Should not resign'
+                3 = 'Not sure';
+VALUE P1KZ      1 = 'Should resign'
+                2 = 'Should not resign'
+                3 = 'Not sure';
+VALUE P1LZ      1 = 'Should impeach him'
+                2 = 'Should not'
+                3 = 'Not sure';
+VALUE P1MZ      1 = 'Justified'
+                2 = 'Not justified'
+                3 = 'Not sure';
+VALUE P2AZ      1 = 'Rising more rapidly'
+                2 = 'Rising as rapidly'
+                3 = 'Rising less rapidly'
+                4 = 'Going down'
+                5 = 'Not sure';
+VALUE P2BZ      1 = 'Increased'
+                2 = 'Decreased'
+                3 = 'Stayed the same'
+                4 = 'Not sure';
+VALUE P2CZ      1 = 'In a recession'
+                2 = 'Not in recession'
+                3 = 'Not sure';
+VALUE P2DZ      1 = 'Will be'
+                2 = 'Will not be'
+                3 = 'Not sure';
+VALUE P2EZ      1 = 'Rise more rapidly'
+                2 = 'As rapidly'
+                3 = 'Less rapidly'
+                4 = 'Will be going down'
+                5 = 'Not sure';
+VALUE P2FZ      1 = 'Gone out of control'
+                2 = 'Not happened'
+                3 = 'Not sure';
+VALUE P2GZ      1 = 'Income has kept pace'
+                2 = 'Has increased slower'
+                3 = 'Not increased at all'
+                4 = 'Increased faster (vol )'
+                5 = 'Not sure';
+VALUE P2HZ      1 = 'Postponed'
+                2 = 'Not happened'
+                3 = 'Not sure';
+VALUE P2JZ      1 = 'Have bought'
+                2 = 'Not bought'
+                3 = 'Not sure';
+VALUE P2L_1Z    1 = 'Certain'
+                2 = 'Probably Will'
+                3 = 'Probably Will Not'
+                4 = 'Not Sure';
+VALUE P2M_1Z    1 = 'Better Value'
+                2 = 'Worse Value'
+                3 = 'No Difference'
+                4 = 'Not Sure';
+VALUE P2NZ      1 = 'Put away for rainy day'
+                2 = 'Invest to grow as inflation increases'
+                3 = 'Buy before prices go up further'
+                4 = 'Not sure';
+VALUE P2OZ      1 = 'Favor'
+                2 = 'Oppose'
+                3 = 'Not sure';
+VALUE P3AZ      1 = 'Improved'
+                2 = 'Stayed the same'
+                3 = 'Grown worse'
+                4 = 'Not sure';
+VALUE P3B_1Z    1 = 'Improved'
+                2 = 'Stayed Same'
+                3 = 'Grown Worse'
+                4 = 'Not Sure';
+VALUE P4AZ      1 = 'Voted'
+                2 = 'Did not vote'
+                3 = 'Can t recall';
+VALUE P4BZ      1 = 'Republican'
+                2 = 'Democrat'
+                3 = 'Independent (vol )'
+                4 = 'Other party (vol )'
+                5 = 'Not sure';
+VALUE P4CZ      1 = 'McGovern'
+                2 = 'Nixon'
+                3 = 'Other'
+                4 = 'Can t recall';
+VALUE P4DZ      1 = 'McGovern'
+                2 = 'Nixon'
+                3 = 'Other (vol )'
+                4 = 'Neither (vol )'
+                5 = 'Not sure';
+VALUE P5AZ      1 = 'Agnew'
+                2 = 'Kennedy'
+                3 = 'Not sure';
+VALUE P5BZ      1 = 'Agnew'
+                2 = 'Kennedy'
+                3 = 'Not sure';
+VALUE P6AZ      1 = 'Agnew'
+                2 = 'Mondale'
+                3 = 'Not sure';
+VALUE P6BZ      1 = 'Agnew'
+                2 = 'Mondale'
+                3 = 'Not sure';
+VALUE P7AZ      1 = 'Agnew'
+                2 = 'Jackson'
+                3 = 'Not sure';
+VALUE P7BZ      1 = 'Agnew'
+                2 = 'Jackson'
+                3 = 'Not sure';
+VALUE P8AZ      1 = 'Republican'
+                2 = 'Democratic'
+                3 = 'Not sure';
+VALUE P8BZ      1 = 'Republican'
+                2 = 'Democratic'
+                3 = 'Not sure';
+VALUE P9AZ      1 = 'Certain will take'
+                2 = 'Probably will take'
+                3 = 'Probably wll not take'
+                4 = 'Not sure';
+VALUE P9BZ      1 = 'Certain will take'
+                2 = 'Probably wll take'
+                3 = 'Probably will not take'
+                4 = 'Not sure';
+VALUE P10AZ     1 = 'Favor lifting black-out'
+                2 = 'Oppose'
+                3 = 'Not sure';
+VALUE P10BZ     1 = 'Favor reinstating black-out'
+                2 = 'Oppose'
+                3 = 'Not sure';
+VALUE P10C_1Z   1 = 'More right'
+                2 = 'More wrong'
+                3 = 'Not sure';
+VALUE P10DZ     1 = 'Justified'
+                2 = 'Not justified'
+                3 = 'Not sure';
+VALUE F1Z       1 = 'Own a car'
+                2 = 'Don t own a car'
+                3 = 'Not sure';
+VALUE F2Z       1 = 'One car'
+                2 = 'Two cars'
+                3 = 'Three cars'
+                4 = 'Four cars or more'
+                5 = 'Not sure';
+VALUE F4Z       1 = 'New'
+                2 = 'Used'
+                3 = 'Not sure';
+VALUE F5Z       1 = '50 cents or less a gallon'
+                2 = '51 to 75 cents a gallon'
+                3 = '76 cents to $1 00 a gallon'
+                4 = '$1 01 to $2 00 a gallon'
+                5 = '$2 01 to $3 00 a gallon'
+                6 = 'Over $3 00 a gallon'
+                7 = 'Not sure';
+VALUE F6Z       1 = 'Be inclined'
+                2 = 'Not be inclined'
+                3 = 'Do now (vol )'
+                4 = 'Not sure';
+VALUE F7_1Z     1 = 'Regularly'
+                2 = 'Sometimes'
+                3 = 'Never'
+                4 = 'Not Sure';
+VALUE F8Z       1 = 'Enough information'
+                2 = 'Not enough information'
+                3 = 'Not sure';
+VALUE F9_1Z     1 = 'Great deal'
+                2 = 'Only some'
+                3 = 'Hardly at all'
+                4 = 'Not sure';
+VALUE F10Z      1 = 'Excellent'
+                2 = 'Good'
+                3 = 'Average'
+                4 = 'Fair'
+                5 = 'Poor'
+                6 = 'Not sure';
+VALUE F11Z      1 = 'Male head'
+                2 = 'Female head (no male head)'
+                3 = 'Wife'
+                4 = 'Son'
+                5 = 'Daughter'
+                6 = 'Other (specify)';
+VALUE F12AZ     1 = 'Hourly wage worker'
+                2 = 'Salaried'
+                3 = 'Self-employed'
+                4 = 'Retired'
+                5 = 'Unemployed'
+                6 = 'Student'
+                7 = 'Military service'
+                8 = 'Housewife'
+                9 = 'Other (specify)';
+VALUE F12BZ     1 = 'Professional, engineer'
+                2 = 'Manager, official, proprietor'
+                3 = 'Clerical worker'
+                4 = 'Sales worker'
+                5 = 'Skilled craftsman, forman'
+                6 = 'Oprtv, nsklld lbrr (xcpt frm)'
+                7 = 'Service worker'
+                8 = 'Farmer, farm manager, farm laborer'
+                9 = 'Other (specify)';
+VALUE F13Z      1 = 'Single'
+                2 = 'Married'
+                3 = 'Widowed'
+                4 = 'Divorced'
+                5 = 'Separated';
+VALUE F14Z      1 = '18 to 20'
+                2 = '21 to 24'
+                3 = '25 to 29'
+                4 = '30 to 34'
+                5 = '35 to 39'
+                6 = '40 to 49'
+                7 = '50 to 64'
+                8 = '65 and over';
+VALUE F15Z      1 = 'C No formal schooling (0 years)'
+                2 = 'D Frst thrgh svnth grd (1-7 yrs f schl c'
+                3 = 'E 8th grd (8 yrs f schl cmpltd)'
+                4 = 'F Sm hgh schl (9-11 yrs f schl cmpltd)'
+                5 = 'G Hgh schl grdt (12 yrs f schl cmpltd)'
+                6 = 'H Sm cllg (1-3 yrs f cllg cmpltd)'
+                7 = 'I Tw yr cllg grdt (cmpltd 2 yrs cmmnty c'
+                8 = 'J Fr yr cllg grdt (cmpltd 4 yrs f cllg)'
+                9 = 'K Post graduate (4 year college graduate';
+VALUE F17Z      1 = 'A Under $3,000'
+                2 = 'B $3,000 to $4,999'
+                3 = 'C $5,000 to $6,999'
+                4 = 'D $7,000 to $9,999'
+                5 = 'E $10,000 to $14,999'
+                6 = 'F $15,000 to $19,999'
+                7 = 'G $20,000 to $24,999'
+                8 = 'H $25,000 and over';
+VALUE F20Z      1 = 'White'
+                2 = 'Black'
+                3 = 'Oriental'
+                4 = 'Spnsh-mrcn (Prt Rcn, Mxcn- mrcn)'
+                5 = 'Other (specify)'
+                6 = 'Not sure';
+VALUE F21Z      1 = 'Male'
+                2 = 'Female';
+VALUE F22Z      1 = '15 minutes or les'
+                2 = '16 minutes to 30 minutes'
+                3 = '31 min to 45 min'
+                4 = '46 min to 1 hour'
+                5 = '1 hr 1 min to 1 hr 15 min'
+                6 = '1 hr 16 min to 1 hr 30 min'
+                7 = '1 hr 31 min to 1 hr 45 min'
+                8 = '1 hr 45 min to 2 hours'
+                9 = '2 hrs 1 min to 2 hrs 15 min'
+               10 = '2 hrs 16 min to 2 hrs 30 min'
+               11 = '2 hrs 31 min to 2 hrs 45 min'
+               12 = 'More than 2 hours 45 minutes';
+VALUE F18Z      1 = 'Protestant'
+                2 = 'Catholic'
+                3 = 'Jewish'
+                4 = 'Other (write in)'
+                5 = 'None'
+                6 = 'Not sure';
+DATA SAS.HDATA; INFILE IN LRECL=160 RECFM=F;
+LENGTH WEIGHT 8 DEFAULT=3;
+INPUT
+#1  @11 S11X      ROW1.8
+    @13 S13X      ROW1.4
+    @15 Q1AX      ROW1.4
+    @18 Q1C_1X    ROW1.4
+    @19 Q1C_2X    ROW1.4
+    @20 Q1C_3X    ROW1.4
+    @21 Q1C_4X    ROW1.4
+    @22 Q1C_5X    ROW1.4
+    @23 Q1C_6X    ROW1.4
+    @24 Q1C_7X    ROW1.4
+    @25 Q1C_8X    ROW1.4
+    @26 Q1C_9X    ROW1.4
+    @27 Q1C_10X   ROW1.4
+    @28 Q1C_11X   ROW1.4
+    @29 Q1C_12X   ROW1.4
+    @30 Q1D_1X    ROW1.6
+    @31 Q1D_2X    ROW1.6
+    @32 Q1D_3X    ROW1.6
+    @33 Q1D_4X    ROW1.6
+    @34 Q1D_5X    ROW1.6
+    @35 Q1D_6X    ROW1.6
+    @36 Q1D_7X    ROW1.6
+    @37 Q1D_8X    ROW1.6
+    @38 Q1D_9X    ROW1.6
+    @39 Q1D_10X   ROW1.6
+    @40 Q1D_11X   ROW1.6
+    @41 Q1D_12X   ROW1.6
+    @54 Q2AX      ROW1.4
+    @55 Q2B_1X    ROW1.3
+    @56 Q2B_2X    ROW1.3
+    @57 Q2B_3X    ROW1.3
+    @58 Q2B_4X    ROW1.3
+    @59 Q2B_5X    ROW1.3
+    @60 Q2C_1X    ROW1.3
+    @61 Q2C_2X    ROW1.3
+    @62 Q2C_3X    ROW1.3
+    @63 Q2C_4X    ROW1.3
+    @64 Q2C_5X    ROW1.3
+    @65 Q3_AX     ROW1.3
+    @66 Q3_BX     ROW1.3
+    @67 Q3_CX     ROW1.3
+    @68 Q3_DX     ROW1.3
+    @69 Q3_EX     ROW1.3
+    @70 Q3_FX     ROW1.3
+    @71 Q3_GX     ROW1.3
+    @72 Q3_HX     ROW1.3
+    @73 Q3_IX     ROW1.3
+    @74 Q3_JX     ROW1.3
+    @75 Q3_KX     ROW1.3
+    @76 Q3_LX     ROW1.3
+    @77 Q3_MX     ROW1.3
+    @78 Q3_NX     ROW1.3
+    @79 Q3_OX     ROW1.3
+#2  @10 Q4A_1X    ROW1.5
+    @11 Q4A_2X    ROW1.5
+    @12 Q4A_3X    ROW1.5
+    @13 Q4A_4X    ROW1.5
+    @14 Q4B_1X    ROW1.4
+    @15 Q4B_2X    ROW1.4
+    @16 Q4B_3X    ROW1.4
+    @17 Q4B_4X    ROW1.4
+    @18 Q4B_5X    ROW1.4
+    @19 Q4B_6X    ROW1.4
+    @20 Q4B_7X    ROW1.4
+    @21 Q4B_8X    ROW1.4
+    @22 Q4B_9X    ROW1.4
+    @23 Q4B_10X   ROW1.4
+    @24 Q4B_11X   ROW1.4
+    @25 Q4B_12X   ROW1.4
+    @26 Q4B_13X   ROW1.4
+    @27 Q4B_14X   ROW1.4
+    @28 Q4CX      ROW1.7
+    @31 Q5AX      ROW1.4
+    @32 Q5B_1X    ROW1.3
+    @33 Q5B_2X    ROW1.3
+    @34 Q5B_3X    ROW1.3
+    @35 Q5B_4X    ROW1.3
+    @36 Q5B_5X    ROW1.3
+    @37 Q5B_6X    ROW1.3
+    @38 Q5B_7X    ROW1.3
+    @39 Q5B_8X    ROW1.3
+    @40 Q5B_9X    ROW1.3
+    @41 Q5B_10X   ROW1.3
+    @42 Q5B_11X   ROW1.3
+    @43 Q5C_1X    ROW1.3
+    @44 Q5C_2X    ROW1.3
+    @45 Q5C_3X    ROW1.3
+    @46 Q5C_4X    ROW1.3
+    @47 Q5C_5X    ROW1.3
+    @48 Q5C_6X    ROW1.3
+    @49 Q5C_7X    ROW1.3
+    @50 Q5C_8X    ROW1.3
+    @51 Q5C_9X    ROW1.3
+    @52 Q5C_10X   ROW1.3
+    @53 Q6A_1X    ROW1.5
+    @54 Q6A_2X    ROW1.5
+    @55 Q6A_3X    ROW1.5
+    @56 Q6A_4X    ROW1.5
+    @57 Q6A_5X    ROW1.5
+    @58 Q6B_AX    ROW1.4
+    @59 Q6B_BX    ROW1.4
+    @60 Q6B_CX    ROW1.4
+    @61 Q6B_DX    ROW1.4
+    @62 Q6B_EX    ROW1.4
+    @63 Q6B_FX    ROW1.4
+    @64 Q6B_GX    ROW1.4
+    @65 Q6B_HX    ROW1.4
+    @66 Q6B_IX    ROW1.4
+    @67 Q6C_1X    ROW1.4
+    @68 Q6C_2X    ROW1.4
+    @69 Q6C_3X    ROW1.4
+    @70 Q6C_4X    ROW1.4
+    @71 Q6C_5X    ROW1.4
+    @72 Q6C_6X    ROW1.4
+    @73 Q6C_7X    ROW1.4
+    @74 Q6D_1X    ROW1.3
+    @75 Q6D_2X    ROW1.3
+    @76 Q6D_3X    ROW1.3
+    @77 Q6D_4X    ROW1.3
+    @78 Q6D_5X    ROW1.3
+    @79 Q6D_6X    ROW1.3
+    @80 Q6D_7X    ROW1.3
+#3  @10 Q6E_1X    ROW1.3
+    @11 Q6E_2X    ROW1.3
+    @12 Q6E_3X    ROW1.3
+    @13 Q6E_4X    ROW1.3
+    @14 Q6E_5X    ROW1.3
+    @15 Q6E_6X    ROW1.3
+    @16 Q6E_7X    ROW1.3
+    @17 Q6FX      ROW1.3
+    @26 Q6HX      ROW1.4
+    @29 Q6J_1X    ROW1.3
+    @30 Q6J_2X    ROW1.3
+    @31 Q6J_3X    ROW1.3
+    @32 Q6J_4X    ROW1.3
+    @33 Q6J_5X    ROW1.3
+    @34 Q6J_6X    ROW1.3
+    @35 Q6J_7X    ROW1.3
+    @36 Q6J_8X    ROW1.3
+    @37 Q6J_9X    ROW1.3
+    @38 Q6J_10X   ROW1.3
+    @39 Q6J_11X   ROW1.3
+    @40 Q7AX      ROW1.5
+    @41 Q7BX      ROW1.3
+    @42 Q7C_1X    ROW1.3
+    @43 Q7C_2X    ROW1.3
+    @44 Q7C_3X    ROW1.3
+    @45 Q7C_4X    ROW1.3
+    @46 Q7C_5X    ROW1.3
+    @47 Q7C_6X    ROW1.3
+    @48 Q7C_7X    ROW1.3
+    @49 Q7C_8X    ROW1.3
+    @50 Q7C_9X    ROW1.3
+    @51 Q7C_10X   ROW1.3
+    @52 Q7C_11X   ROW1.3
+    @53 Q7C_12X   ROW1.3
+    @54 Q7C_13X   ROW1.3
+    @55 Q7C_14X   ROW1.3
+    @56 Q7C_15X   ROW1.3
+    @57 Q7C_16X   ROW1.3
+    @58 Q7C_17X   ROW1.3
+    @59 Q7C_18X   ROW1.3
+    @60 Q7C_19X   ROW1.3
+    @61 Q7C_20X   ROW1.3
+    @62 Q7C_21X   ROW1.3
+    @63 Q7C_22X   ROW1.3
+    @64 Q7C_23X   ROW1.3
+    @65 Q7C_24X   ROW1.3
+    @66 Q7C_25X   ROW1.3
+    @67 Q7C_26X   ROW1.3
+    @68 Q7C_27X   ROW1.3
+    @69 Q7C_28X   ROW1.3
+    @70 Q8A_1X    ROW1.3
+    @71 Q8A_2X    ROW1.3
+    @72 Q8A_3X    ROW1.3
+    @73 Q8A_4X    ROW1.3
+    @74 Q8A_5X    ROW1.3
+    @75 Q8A_6X    ROW1.3
+    @76 Q8A_7X    ROW1.3
+    @77 Q8A_8X    ROW1.3
+    @78 Q8A_9X    ROW1.3
+    @79 Q8A_10X   ROW1.3
+    @80 Q8A_11X   ROW1.3
+#4  @10 Q8B_1X    ROW1.3
+    @11 Q8B_2X    ROW1.3
+    @12 Q8B_3X    ROW1.3
+    @13 Q8B_4X    ROW1.3
+    @14 Q8B_5X    ROW1.3
+    @15 Q8B_6X    ROW1.3
+    @16 Q8B_7X    ROW1.3
+    @17 Q8B_8X    ROW1.3
+    @18 Q8B_9X    ROW1.3
+    @19 Q8B_10X   ROW1.3
+    @20 Q9A_1X    ROW1.4
+    @21 Q9A_2X    ROW1.4
+    @22 Q9A_3X    ROW1.4
+    @23 Q9A_4X    ROW1.4
+    @24 Q9A_5X    ROW1.4
+    @25 Q9A_6X    ROW1.4
+    @26 Q9A_7X    ROW1.4
+    @27 Q9A_8X    ROW1.4
+    @28 Q9A_9X    ROW1.4
+    @29 Q9B_1X    ROW1.4
+    @30 Q9B_2X    ROW1.4
+    @31 Q9B_3X    ROW1.4
+    @32 Q9B_4X    ROW1.4
+    @33 Q9B_5X    ROW1.4
+    @34 Q9B_6X    ROW1.4
+    @35 Q9B_7X    ROW1.4
+    @36 Q9B_8X    ROW1.4
+    @37 Q9B_9X    ROW1.4
+    @38 Q10_1X    ROW1.3
+    @39 Q10_2X    ROW1.3
+    @40 Q10_3X    ROW1.3
+    @41 Q10_4X    ROW1.3
+    @42 Q11AX     ROW1.3
+    @45 P1AX      ROW1.5
+    @46 P1B_1X    ROW1.5
+    @47 P1B_2X    ROW1.5
+    @48 P1B_3X    ROW1.5
+    @49 P1B_4X    ROW1.5
+    @50 P1B_5X    ROW1.5
+    @51 P1B_6X    ROW1.5
+    @52 P1B_7X    ROW1.5
+    @53 P1B_8X    ROW1.5
+    @54 P1B_9X    ROW1.5
+    @55 P1B_10X   ROW1.5
+    @56 P1B_11X   ROW1.5
+    @57 P1B_12X   ROW1.5
+    @58 P1B_13X   ROW1.5
+    @59 P1B_14X   ROW1.5
+    @60 P1B_15X   ROW1.5
+    @61 P1B_16X   ROW1.5
+    @62 P1B_17X   ROW1.5
+    @63 P1B_18X   ROW1.5
+    @64 P1B_19X   ROW1.5
+    @65 P1B_20X   ROW1.5
+    @66 P1B_21X   ROW1.5
+    @67 P1B_22X   ROW1.5
+    @70 P1DX      ROW1.3
+    @71 P1EX      ROW1.3
+    @72 P1FX      ROW1.3
+    @73 P1GX      ROW1.3
+    @74 P1HX      ROW1.5
+    @75 P1I_1X    ROW1.3
+    @76 P1I_2X    ROW1.3
+    @77 P1I_3X    ROW1.3
+    @78 P1I_4X    ROW1.3
+    @79 P1I_5X    ROW1.3
+    @80 P1I_6X    ROW1.3
+#5  @10 P1JX      ROW1.3
+    @11 P1KX      ROW1.3
+    @12 P1LX      ROW1.3
+    @13 P1MX      ROW1.3
+    @16 P2AX      ROW1.5
+    @17 P2BX      ROW1.4
+    @18 P2CX      ROW1.3
+    @19 P2DX      ROW1.3
+    @20 P2EX      ROW1.5
+    @21 P2FX      ROW1.3
+    @22 P2GX      ROW1.5
+    @23 P2HX      ROW1.3
+    @26 P2JX      ROW1.3
+    @29 P2L_1X    ROW1.4
+    @30 P2L_2X    ROW1.4
+    @31 P2L_3X    ROW1.4
+    @32 P2L_4X    ROW1.4
+    @33 P2L_5X    ROW1.4
+    @34 P2L_6X    ROW1.4
+    @35 P2L_7X    ROW1.4
+    @36 P2L_8X    ROW1.4
+    @37 P2L_9X    ROW1.4
+    @38 P2L_10X   ROW1.4
+    @39 P2L_11X   ROW1.4
+    @40 P2L_12X   ROW1.4
+    @41 P2M_1X    ROW1.4
+    @42 P2M_2X    ROW1.4
+    @43 P2M_3X    ROW1.4
+    @44 P2M_4X    ROW1.4
+    @45 P2M_5X    ROW1.4
+    @46 P2M_6X    ROW1.4
+    @47 P2M_7X    ROW1.4
+    @48 P2M_8X    ROW1.4
+    @49 P2M_9X    ROW1.4
+    @50 P2M_10X   ROW1.4
+    @51 P2M_11X   ROW1.4
+    @52 P2M_12X   ROW1.4
+    @53 P2M_13X   ROW1.4
+    @54 P2NX      ROW1.4
+    @55 P2OX      ROW1.3
+    @58 P3AX      ROW1.4
+    @59 P3B_1X    ROW1.4
+    @60 P3B_2X    ROW1.4
+    @61 P3B_3X    ROW1.4
+    @62 P3B_4X    ROW1.4
+    @63 P3B_5X    ROW1.4
+    @64 P3B_6X    ROW1.4
+    @65 P3B_7X    ROW1.4
+    @66 P3B_8X    ROW1.4
+    @67 P3B_9X    ROW1.4
+    @68 P3B_10X   ROW1.4
+    @69 P3B_11X   ROW1.4
+    @70 P3B_12X   ROW1.4
+    @71 P3B_13X   ROW1.4
+    @72 P3B_14X   ROW1.4
+    @73 P3B_15X   ROW1.4
+    @74 P3B_16X   ROW1.4
+    @75 P3B_17X   ROW1.4
+    @76 P4AX      ROW1.3
+    @77 P4BX      ROW1.5
+    @78 P4CX      ROW1.4
+    @79 P4DX      ROW1.5
+    @80 P5AX      ROW1.3
+#6  @10 P5BX      ROW1.3
+    @11 P6AX      ROW1.3
+    @12 P6BX      ROW1.3
+    @13 P7AX      ROW1.3
+    @14 P7BX      ROW1.3
+    @15 P8AX      ROW1.3
+    @16 P8BX      ROW1.3
+    @17 P9AX      ROW1.4
+    @18 P9BX      ROW1.4
+    @19 F1X       ROW1.3
+    @20 F2X       ROW1.5
+    @26 F4X       ROW1.3
+    @27 F5X       ROW1.7
+    @28 F6X       ROW1.4
+    @29 F7_1X     ROW1.4
+    @30 F7_2X     ROW1.4
+    @31 F7_3X     ROW1.4
+    @32 F7_4X     ROW1.4
+    @33 F7_5X     ROW1.4
+    @34 F7_6X     ROW1.4
+    @35 F7_7X     ROW1.4
+    @36 F8X       ROW1.3
+    @37 F9_1X     ROW1.4
+    @38 F9_2X     ROW1.4
+    @39 F9_3X     ROW1.4
+    @40 F9_4X     ROW1.4
+    @41 F9_5X     ROW1.4
+    @42 F9_6X     ROW1.4
+    @43 F9_7X     ROW1.4
+    @44 F9_8X     ROW1.4
+    @45 F9_9X     ROW1.4
+    @46 F9_10X    ROW1.4
+    @47 F9_11X    ROW1.4
+    @48 F9_12X    ROW1.4
+    @49 F9_13X    ROW1.4
+    @50 F9_14X    ROW1.4
+    @51 F10X      ROW1.6
+    @52 F11X      ROW1.6
+    @53 F12AX     ROW1.9
+    @54 F12BX     ROW1.9
+    @55 F13X      ROW1.5
+    @56 F14X      ROW1.8
+    @57 F15X      ROW1.9
+ @58   F16_1   PUNCH.1
+ @58   F16_2   PUNCH.2
+ @58   F16_3   PUNCH.3
+ @58   F16_4   PUNCH.4
+    @59 F17X      ROW1.8
+    @60 F18X      ROW1.6
+    @61 F19_1 PUNCH.1
+    @61 F19_2 PUNCH.2
+    @61 F19_3 PUNCH.3
+    @61 F19_4 PUNCH.4
+    @61 F19_5 PUNCH.5
+    @61 F19_6 PUNCH.6
+    @61 F19_7 PUNCH.7
+    @61 F19_8 PUNCH.8
+    @61 F19_9 PUNCH.9
+    @61 F19_10 PUNCH.0
+    @61 F19_11 PUNCH.11
+    @61 F19_12 PUNCH.12
+    @62 F19_13 PUNCH.1
+    @62 F19_14 PUNCH.2
+    @62 F19_15 PUNCH.3
+    @62 F19_16 PUNCH.4
+    @62 F19_17 PUNCH.5
+    @62 F19_18 PUNCH.6
+    @62 F19_19 PUNCH.7
+    @62 F19_20 PUNCH.8
+    @62 F19_21 PUNCH.9
+    @63 F20X      ROW1.6
+    @64 F21X      ROW1.2
+    @65 F22X  ROW12.12
+    @66 P10AX     ROW1.3
+    @67 P10BX     ROW1.3
+    @68 P10C_1X   ROW1.3
+    @69 P10C_2X   ROW1.3
+    @70 P10C_3X   ROW1.3
+    @71 P10DX     ROW1.3
+ #7 @10  WEIGHT CB2.;
+DROP     S11X
+         S13X
+         Q1AX
+         Q1C_1X
+         Q1C_2X
+         Q1C_3X
+         Q1C_4X
+         Q1C_5X
+         Q1C_6X
+         Q1C_7X
+         Q1C_8X
+         Q1C_9X
+         Q1C_10X
+         Q1C_11X
+         Q1C_12X
+         Q1D_1X
+         Q1D_2X
+         Q1D_3X
+         Q1D_4X
+         Q1D_5X
+         Q1D_6X
+         Q1D_7X
+         Q1D_8X
+         Q1D_9X
+         Q1D_10X
+         Q1D_11X
+         Q1D_12X
+         Q2AX
+         Q2B_1X
+         Q2B_2X
+         Q2B_3X
+         Q2B_4X
+         Q2B_5X
+         Q2C_1X
+         Q2C_2X
+         Q2C_3X
+         Q2C_4X
+         Q2C_5X
+         Q3_AX
+         Q3_BX
+         Q3_CX
+         Q3_DX
+         Q3_EX
+         Q3_FX
+         Q3_GX
+         Q3_HX
+         Q3_IX
+         Q3_JX
+         Q3_KX
+         Q3_LX
+         Q3_MX
+         Q3_NX
+         Q3_OX
+         Q4A_1X
+         Q4A_2X
+         Q4A_3X
+         Q4A_4X
+         Q4B_1X
+         Q4B_2X
+         Q4B_3X
+         Q4B_4X
+         Q4B_5X
+         Q4B_6X
+         Q4B_7X
+         Q4B_8X
+         Q4B_9X
+         Q4B_10X
+         Q4B_11X
+         Q4B_12X
+         Q4B_13X
+         Q4B_14X
+         Q4CX
+         Q5AX
+         Q5B_1X
+         Q5B_2X
+         Q5B_3X
+         Q5B_4X
+         Q5B_5X
+         Q5B_6X
+         Q5B_7X
+         Q5B_8X
+         Q5B_9X
+         Q5B_10X
+         Q5B_11X
+         Q5C_1X
+         Q5C_2X
+         Q5C_3X
+         Q5C_4X
+         Q5C_5X
+         Q5C_6X
+         Q5C_7X
+         Q5C_8X
+         Q5C_9X
+         Q5C_10X
+         Q6A_1X
+         Q6A_2X
+         Q6A_3X
+         Q6A_4X
+         Q6A_5X
+         Q6B_AX
+         Q6B_BX
+         Q6B_CX
+         Q6B_DX
+         Q6B_EX
+         Q6B_FX
+         Q6B_GX
+         Q6B_HX
+         Q6B_IX
+         Q6C_1X
+         Q6C_2X
+         Q6C_3X
+         Q6C_4X
+         Q6C_5X
+         Q6C_6X
+         Q6C_7X
+         Q6D_1X
+         Q6D_2X
+         Q6D_3X
+         Q6D_4X
+         Q6D_5X
+         Q6D_6X
+         Q6D_7X
+         Q6E_1X
+         Q6E_2X
+         Q6E_3X
+         Q6E_4X
+         Q6E_5X
+         Q6E_6X
+         Q6E_7X
+         Q6FX
+         Q6HX
+         Q6J_1X
+         Q6J_2X
+         Q6J_3X
+         Q6J_4X
+         Q6J_5X
+         Q6J_6X
+         Q6J_7X
+         Q6J_8X
+         Q6J_9X
+         Q6J_10X
+         Q6J_11X
+         Q7AX
+         Q7BX
+         Q7C_1X
+         Q7C_2X
+         Q7C_3X
+         Q7C_4X
+         Q7C_5X
+         Q7C_6X
+         Q7C_7X
+         Q7C_8X
+         Q7C_9X
+         Q7C_10X
+         Q7C_11X
+         Q7C_12X
+         Q7C_13X
+         Q7C_14X
+         Q7C_15X
+         Q7C_16X
+         Q7C_17X
+         Q7C_18X
+         Q7C_19X
+         Q7C_20X
+         Q7C_21X
+         Q7C_22X
+         Q7C_23X
+         Q7C_24X
+         Q7C_25X
+         Q7C_26X
+         Q7C_27X
+         Q7C_28X
+         Q8A_1X
+         Q8A_2X
+         Q8A_3X
+         Q8A_4X
+         Q8A_5X
+         Q8A_6X
+         Q8A_7X
+         Q8A_8X
+         Q8A_9X
+         Q8A_10X
+         Q8A_11X
+         Q8B_1X
+         Q8B_2X
+         Q8B_3X
+         Q8B_4X
+         Q8B_5X
+         Q8B_6X
+         Q8B_7X
+         Q8B_8X
+         Q8B_9X
+         Q8B_10X
+         Q9A_1X
+         Q9A_2X
+         Q9A_3X
+         Q9A_4X
+         Q9A_5X
+         Q9A_6X
+         Q9A_7X
+         Q9A_8X
+         Q9A_9X
+         Q9B_1X
+         Q9B_2X
+         Q9B_3X
+         Q9B_4X
+         Q9B_5X
+         Q9B_6X
+         Q9B_7X
+         Q9B_8X
+         Q9B_9X
+         Q10_1X
+         Q10_2X
+         Q10_3X
+         Q10_4X
+         Q11AX
+         P1AX
+         P1B_1X
+         P1B_2X
+         P1B_3X
+         P1B_4X
+         P1B_5X
+         P1B_6X
+         P1B_7X
+         P1B_8X
+         P1B_9X
+         P1B_10X
+         P1B_11X
+         P1B_12X
+         P1B_13X
+         P1B_14X
+         P1B_15X
+         P1B_16X
+         P1B_17X
+         P1B_18X
+         P1B_19X
+         P1B_20X
+         P1B_21X
+         P1B_22X
+         P1DX
+         P1EX
+         P1FX
+         P1GX
+         P1HX
+         P1I_1X
+         P1I_2X
+         P1I_3X
+         P1I_4X
+         P1I_5X
+         P1I_6X
+         P1JX
+         P1KX
+         P1LX
+         P1MX
+         P2AX
+         P2BX
+         P2CX
+         P2DX
+         P2EX
+         P2FX
+         P2GX
+         P2HX
+         P2JX
+         P2L_1X
+         P2L_2X
+         P2L_3X
+         P2L_4X
+         P2L_5X
+         P2L_6X
+         P2L_7X
+         P2L_8X
+         P2L_9X
+         P2L_10X
+         P2L_11X
+         P2L_12X
+         P2M_1X
+         P2M_2X
+         P2M_3X
+         P2M_4X
+         P2M_5X
+         P2M_6X
+         P2M_7X
+         P2M_8X
+         P2M_9X
+         P2M_10X
+         P2M_11X
+         P2M_12X
+         P2M_13X
+         P2NX
+         P2OX
+         P3AX
+         P3B_1X
+         P3B_2X
+         P3B_3X
+         P3B_4X
+         P3B_5X
+         P3B_6X
+         P3B_7X
+         P3B_8X
+         P3B_9X
+         P3B_10X
+         P3B_11X
+         P3B_12X
+         P3B_13X
+         P3B_14X
+         P3B_15X
+         P3B_16X
+         P3B_17X
+         P4AX
+         P4BX
+         P4CX
+         P4DX
+         P5AX
+         P5BX
+         P6AX
+         P6BX
+         P7AX
+         P7BX
+         P8AX
+         P8BX
+         P9AX
+         P9BX
+         P10AX
+         P10BX
+         P10C_1X
+         P10C_2X
+         P10C_3X
+         P10DX
+         F1X
+         F2X
+         F4X
+         F5X
+         F6X
+         F7_1X
+         F7_2X
+         F7_3X
+         F7_4X
+         F7_5X
+         F7_6X
+         F7_7X
+         F8X
+         F9_1X
+         F9_2X
+         F9_3X
+         F9_4X
+         F9_5X
+         F9_6X
+         F9_7X
+         F9_8X
+         F9_9X
+         F9_10X
+         F9_11X
+         F9_12X
+         F9_13X
+         F9_14X
+         F10X
+         F11X
+         F12AX
+         F12BX
+         F13X
+         F14X
+         F15X
+         F17X
+         F20X
+         F21X
+         F22X
+         F18X;
+S11 = S11X     ;
+ATTRIB S11 FORMAT=S11Z.
+     LABEL='Region';
+S13 = S13X     ;
+ATTRIB S13 FORMAT=S13Z.
+     LABEL='Size of Place';
+Q1A = Q1AX     ;
+ATTRIB Q1A FORMAT=Q1AZ.
+     LABEL='Thinking about the energy shortage -- th';
+Q1C_1 = Q1C_1X   ;
+ATTRIB Q1C_1 FORMAT=Q1C_1Z.
+     LABEL='Gasoline for automobiles';
+Q1C_2 = Q1C_2X   ;
+ATTRIB Q1C_2 FORMAT=Q1C_1Z.
+     LABEL='Electric power for air conditioners';
+Q1C_3 = Q1C_3X   ;
+ATTRIB Q1C_3 FORMAT=Q1C_1Z.
+     LABEL='Electric power to heat homes';
+Q1C_4 = Q1C_4X   ;
+ATTRIB Q1C_4 FORMAT=Q1C_1Z.
+     LABEL='Fuel oil to heat homes';
+Q1C_5 = Q1C_5X   ;
+ATTRIB Q1C_5 FORMAT=Q1C_1Z.
+     LABEL='Electric power to run industrial plants';
+Q1C_6 = Q1C_6X   ;
+ATTRIB Q1C_6 FORMAT=Q1C_1Z.
+     LABEL='Natural gas to run industrial plants';
+Q1C_7 = Q1C_7X   ;
+ATTRIB Q1C_7 FORMAT=Q1C_1Z.
+     LABEL='Natural gas to heat homes';
+Q1C_8 = Q1C_8X   ;
+ATTRIB Q1C_8 FORMAT=Q1C_1Z.
+     LABEL='Elctrc pwr t lght hms nd rn hm pplncs';
+Q1C_9 = Q1C_9X   ;
+ATTRIB Q1C_9 FORMAT=Q1C_1Z.
+     LABEL='Fuel oil for industrial use';
+Q1C_10 = Q1C_10X  ;
+ATTRIB Q1C_10 FORMAT=Q1C_1Z.
+     LABEL='Aviation fuel for airlines';
+Q1C_11 = Q1C_11X  ;
+ATTRIB Q1C_11 FORMAT=Q1C_1Z.
+     LABEL='Diesel fuel for trucks and trains';
+Q1C_12 = Q1C_12X  ;
+ATTRIB Q1C_12 FORMAT=Q1C_1Z.
+     LABEL='Fuel for public transportation';
+Q1D_1 = Q1D_1X   ;
+ATTRIB Q1D_1 FORMAT=Q1D_1Z.
+     LABEL='Gasoline for automobiles';
+Q1D_2 = Q1D_2X   ;
+ATTRIB Q1D_2 FORMAT=Q1D_1Z.
+     LABEL='Electric power for air conditioners';
+Q1D_3 = Q1D_3X   ;
+ATTRIB Q1D_3 FORMAT=Q1D_1Z.
+     LABEL='Electric power to heat homes';
+Q1D_4 = Q1D_4X   ;
+ATTRIB Q1D_4 FORMAT=Q1D_1Z.
+     LABEL='Fuel oil to heat homes';
+Q1D_5 = Q1D_5X   ;
+ATTRIB Q1D_5 FORMAT=Q1D_1Z.
+     LABEL='Electric power to run industrial plants';
+Q1D_6 = Q1D_6X   ;
+ATTRIB Q1D_6 FORMAT=Q1D_1Z.
+     LABEL='Natural gas to run industrial plants';
+Q1D_7 = Q1D_7X   ;
+ATTRIB Q1D_7 FORMAT=Q1D_1Z.
+     LABEL='Natural gas to heat homes';
+Q1D_8 = Q1D_8X   ;
+ATTRIB Q1D_8 FORMAT=Q1D_1Z.
+     LABEL='Elctrc pwr t lght hms nd rn hm pplncs';
+Q1D_9 = Q1D_9X   ;
+ATTRIB Q1D_9 FORMAT=Q1D_1Z.
+     LABEL='Fuel oil for industrial use';
+Q1D_10 = Q1D_10X  ;
+ATTRIB Q1D_10 FORMAT=Q1D_1Z.
+     LABEL='Aviation fuel for airlines';
+Q1D_11 = Q1D_11X  ;
+ATTRIB Q1D_11 FORMAT=Q1D_1Z.
+     LABEL='Diesel fuel for trucks and trains';
+Q1D_12 = Q1D_12X  ;
+ATTRIB Q1D_12 FORMAT=Q1D_1Z.
+     LABEL='Fuel for public transportation';
+Q2A = Q2AX     ;
+ATTRIB Q2A FORMAT=Q2AZ.
+     LABEL='In general, do you feel it is possible t';
+Q2B_1 = Q2B_1X   ;
+ATTRIB Q2B_1 FORMAT=Q2B_1Z.
+     LABEL='Gasoline for cars';
+Q2B_2 = Q2B_2X   ;
+ATTRIB Q2B_2 FORMAT=Q2B_1Z.
+     LABEL='Fuel oil for home heating';
+Q2B_3 = Q2B_3X   ;
+ATTRIB Q2B_3 FORMAT=Q2B_1Z.
+     LABEL='Electric power for home use';
+Q2B_4 = Q2B_4X   ;
+ATTRIB Q2B_4 FORMAT=Q2B_1Z.
+     LABEL='Natural gas for home heating';
+Q2B_5 = Q2B_5X   ;
+ATTRIB Q2B_5 FORMAT=Q2B_1Z.
+     LABEL='Fuel for public transportation';
+Q2C_1 = Q2C_1X   ;
+ATTRIB Q2C_1 FORMAT=Q2C_1Z.
+     LABEL='Gasoline for cars';
+Q2C_2 = Q2C_2X   ;
+ATTRIB Q2C_2 FORMAT=Q2C_1Z.
+     LABEL='Electric power for home use';
+Q2C_3 = Q2C_3X   ;
+ATTRIB Q2C_3 FORMAT=Q2C_1Z.
+     LABEL='Fuel oil for home heating';
+Q2C_4 = Q2C_4X   ;
+ATTRIB Q2C_4 FORMAT=Q2C_1Z.
+     LABEL='Natural gas for home heating';
+Q2C_5 = Q2C_5X   ;
+ATTRIB Q2C_5 FORMAT=Q2C_1Z.
+     LABEL='Fuel for public transportation';
+Q3_A = Q3_AX    ;
+ATTRIB Q3_A FORMAT=Q3_1Z.
+     LABEL='Fdrl spprt t bld r by mr sprtnkrs t shp ';
+Q3_B = Q3_BX    ;
+ATTRIB Q3_B FORMAT=Q3_1Z.
+     LABEL='Allw mr l rfnrs t b blt n th ntd Stts';
+Q3_C = Q3_CX    ;
+ATTRIB Q3_C FORMAT=Q3_1Z.
+     LABEL='Bld mr dp wtr prts whch cn hndl bg tnkrs';
+Q3_D = Q3_DX    ;
+ATTRIB Q3_D FORMAT=Q3_1Z.
+     LABEL='Bld mr nclr pwr plnts, whch s tmc nrgy';
+Q3_E = Q3_EX    ;
+ATTRIB Q3_E FORMAT=Q3_1Z.
+     LABEL='Convert tar sands to oil';
+Q3_F = Q3_FX    ;
+ATTRIB Q3_F FORMAT=Q3_1Z.
+     LABEL='Expand strip mining for coal';
+Q3_G = Q3_GX    ;
+ATTRIB Q3_G FORMAT=Q3_1Z.
+     LABEL='Convert coal into natural gas';
+Q3_H = Q3_HX    ;
+ATTRIB Q3_H FORMAT=Q3_1Z.
+     LABEL='Allw mr drllng fr l n gvrnmnt wnd lnds';
+Q3_I = Q3_IX    ;
+ATTRIB Q3_I FORMAT=Q3_1Z.
+     LABEL='Allw mr ff-shr drllng fr l ff th tlntc c';
+Q3_J = Q3_JX    ;
+ATTRIB Q3_J FORMAT=Q3_1Z.
+     LABEL='Allow the Alaska pipeline to be built';
+Q3_K = Q3_KX    ;
+ATTRIB Q3_K FORMAT=Q3_1Z.
+     LABEL='Allw mr ff-shr drllng fr l ff th Pcfc cs';
+Q3_L = Q3_LX    ;
+ATTRIB Q3_L FORMAT=Q3_1Z.
+     LABEL='Imprt mr l nd ntrl gs frm vrss';
+Q3_M = Q3_MX    ;
+ATTRIB Q3_M FORMAT=Q3_1Z.
+     LABEL='Convert oil shale to synthetic crude oil';
+Q3_N = Q3_NX    ;
+ATTRIB Q3_N FORMAT=Q3_1Z.
+     LABEL='Rlx t mssn rls nd stndrds t sv gsln';
+Q3_O = Q3_OX    ;
+ATTRIB Q3_O FORMAT=Q3_1Z.
+     LABEL='Rstrct frqncy f srvc f pblc trnsprttn';
+Q4A_1 = Q4A_1X   ;
+ATTRIB Q4A_1 FORMAT=Q4A_1Z.
+     LABEL='Gasoline in driving their cars too fast';
+Q4A_2 = Q4A_2X   ;
+ATTRIB Q4A_2 FORMAT=Q4A_1Z.
+     LABEL='Fl l nd lctrc pwr fr r cndtnng';
+Q4A_3 = Q4A_3X   ;
+ATTRIB Q4A_3 FORMAT=Q4A_1Z.
+     LABEL='Elctrc pwr, fl l nd ntrl gs fr hm htng';
+Q4A_4 = Q4A_4X   ;
+ATTRIB Q4A_4 FORMAT=Q4A_1Z.
+     LABEL='Elctrc pwr fr hm lghtng nd rnnng hm ppln';
+Q4B_1 = Q4B_1X   ;
+ATTRIB Q4B_1 FORMAT=Q4B_1Z.
+     LABEL='Th spd lmt n hghwys wr lwrd t  mxmm f 55';
+Q4B_2 = Q4B_2X   ;
+ATTRIB Q4B_2 FORMAT=Q4B_1Z.
+     LABEL='Th tlls n brdgs, tnnls nd hghwys wr rsd ';
+Q4B_3 = Q4B_3X   ;
+ATTRIB Q4B_3 FORMAT=Q4B_1Z.
+     LABEL='Atmbls wr bnnd frm dwntwn mtrpltn rs';
+Q4B_4 = Q4B_4X   ;
+ATTRIB Q4B_4 FORMAT=Q4B_1Z.
+     LABEL='It were made illegal for people to drive';
+Q4B_5 = Q4B_5X   ;
+ATTRIB Q4B_5 FORMAT=Q4B_1Z.
+     LABEL='Th mxmm clng tmprtr f r cndtnrs wr rdcd ';
+Q4B_6 = Q4B_6X   ;
+ATTRIB Q4B_6 FORMAT=Q4B_1Z.
+     LABEL='It wr rqrd tht ppl trn thr ht dwn t lst ';
+Q4B_7 = Q4B_7X   ;
+ATTRIB Q4B_7 FORMAT=Q4B_1Z.
+     LABEL='Cr wnrs wr rqrd t hv thr crs tnd p vry 4';
+Q4B_8 = Q4B_8X   ;
+ATTRIB Q4B_8 FORMAT=Q4B_1Z.
+     LABEL='There were a crackdown on drivers who ma';
+Q4B_9 = Q4B_9X   ;
+ATTRIB Q4B_9 FORMAT=Q4B_1Z.
+     LABEL='All housing had to be inspected once eve';
+Q4B_10 = Q4B_10X  ;
+ATTRIB Q4B_10 FORMAT=Q4B_1Z.
+     LABEL='Th cntry wnt t  systm f gsln rtnng';
+Q4B_11 = Q4B_11X  ;
+ATTRIB Q4B_11 FORMAT=Q4B_1Z.
+     LABEL='Gsln sttns wr bl t sll gs nly 3 r 4 dys ';
+Q4B_12 = Q4B_12X  ;
+ATTRIB Q4B_12 FORMAT=Q4B_1Z.
+     LABEL='Owners of gas ranges with pilot lights w';
+Q4B_13 = Q4B_13X  ;
+ATTRIB Q4B_13 FORMAT=Q4B_1Z.
+     LABEL='Pblc trnsprttn wr mr rstrctd n frqncy f ';
+Q4B_14 = Q4B_14X  ;
+ATTRIB Q4B_14 FORMAT=Q4B_1Z.
+     LABEL='Prkng spcs wr rdcd nd prkng fs ncrsd n m';
+Q4C = Q4CX     ;
+ATTRIB Q4C FORMAT=Q4CZ.
+     LABEL='(HAND RESPONDENT CARD""A"") If you HAD t';
+Q5A = Q5AX     ;
+ATTRIB Q5A FORMAT=Q5AZ.
+     LABEL='We now import oil and natural gas from a';
+Q5B_1 = Q5B_1X   ;
+ATTRIB Q5B_1 FORMAT=Q5B_1Z.
+     LABEL='Nrth S r (ff th cst f Nrwy, Dnmrk nd Grm';
+Q5B_2 = Q5B_2X   ;
+ATTRIB Q5B_2 FORMAT=Q5B_1Z.
+     LABEL='Australia';
+Q5B_3 = Q5B_3X   ;
+ATTRIB Q5B_3 FORMAT=Q5B_1Z.
+     LABEL='Iran';
+Q5B_4 = Q5B_4X   ;
+ATTRIB Q5B_4 FORMAT=Q5B_1Z.
+     LABEL='Japan';
+Q5B_5 = Q5B_5X   ;
+ATTRIB Q5B_5 FORMAT=Q5B_1Z.
+     LABEL='Middle East Arab countries';
+Q5B_6 = Q5B_6X   ;
+ATTRIB Q5B_6 FORMAT=Q5B_1Z.
+     LABEL='Canada';
+Q5B_7 = Q5B_7X   ;
+ATTRIB Q5B_7 FORMAT=Q5B_1Z.
+     LABEL='Nigeria';
+Q5B_8 = Q5B_8X   ;
+ATTRIB Q5B_8 FORMAT=Q5B_1Z.
+     LABEL='Venezuela';
+Q5B_9 = Q5B_9X   ;
+ATTRIB Q5B_9 FORMAT=Q5B_1Z.
+     LABEL='Russia';
+Q5B_10 = Q5B_10X  ;
+ATTRIB Q5B_10 FORMAT=Q5B_1Z.
+     LABEL='Red China';
+Q5B_11 = Q5B_11X  ;
+ATTRIB Q5B_11 FORMAT=Q5B_1Z.
+     LABEL='Argentina';
+Q5C_1 = Q5C_1X   ;
+ATTRIB Q5C_1 FORMAT=Q5C_1Z.
+     LABEL='Arab countries are too unstable for us t';
+Q5C_2 = Q5C_2X   ;
+ATTRIB Q5C_2 FORMAT=Q5C_1Z.
+     LABEL='American oil companies operate abroad, s';
+Q5C_3 = Q5C_3X   ;
+ATTRIB Q5C_3 FORMAT=Q5C_1Z.
+     LABEL='Foreign countries are raising their pric';
+Q5C_4 = Q5C_4X   ;
+ATTRIB Q5C_4 FORMAT=Q5C_1Z.
+     LABEL='The U.S. should force a peace settlement';
+Q5C_5 = Q5C_5X   ;
+ATTRIB Q5C_5 FORMAT=Q5C_1Z.
+     LABEL='Arab countries will force us to make pol';
+Q5C_6 = Q5C_6X   ;
+ATTRIB Q5C_6 FORMAT=Q5C_1Z.
+     LABEL='We depend on many countries for vital su';
+Q5C_7 = Q5C_7X   ;
+ATTRIB Q5C_7 FORMAT=Q5C_1Z.
+     LABEL='On such basic supplies as oil and natura';
+Q5C_8 = Q5C_8X   ;
+ATTRIB Q5C_8 FORMAT=Q5C_1Z.
+     LABEL='Overdependence on foreign oil imports in';
+Q5C_9 = Q5C_9X   ;
+ATTRIB Q5C_9 FORMAT=Q5C_1Z.
+     LABEL='The Arabs are accumulating so many dolla';
+Q5C_10 = Q5C_10X  ;
+ATTRIB Q5C_10 FORMAT=Q5C_1Z.
+     LABEL='Arab countries know they have us at thei';
+Q6A_1 = Q6A_1X   ;
+ATTRIB Q6A_1 FORMAT=Q6A_1Z.
+     LABEL='U.S. l cmpns n spplyng n dqt mnt f gsln ';
+Q6A_2 = Q6A_2X   ;
+ATTRIB Q6A_2 FORMAT=Q6A_1Z.
+     LABEL='U.S. electric power companies in supplyi';
+Q6A_3 = Q6A_3X   ;
+ATTRIB Q6A_3 FORMAT=Q6A_1Z.
+     LABEL='Th fdrl gvrnmnt n Wshngtn n hndlng th nr';
+Q6A_4 = Q6A_4X   ;
+ATTRIB Q6A_4 FORMAT=Q6A_1Z.
+     LABEL='Yr stt gvrnmnt n hndlng th nrgy shrtg';
+Q6A_5 = Q6A_5X   ;
+ATTRIB Q6A_5 FORMAT=Q6A_1Z.
+     LABEL='Automobile manufacturers in meeting gove';
+Q6B_A = Q6B_AX   ;
+ATTRIB Q6B_A FORMAT=Q6B_1Z.
+     LABEL='Federal government';
+Q6B_B = Q6B_BX   ;
+ATTRIB Q6B_B FORMAT=Q6B_1Z.
+     LABEL='The oil companies';
+Q6B_C = Q6B_CX   ;
+ATTRIB Q6B_C FORMAT=Q6B_1Z.
+     LABEL='The utility companies';
+Q6B_D = Q6B_DX   ;
+ATTRIB Q6B_D FORMAT=Q6B_1Z.
+     LABEL='Automobile industry';
+Q6B_E = Q6B_EX   ;
+ATTRIB Q6B_E FORMAT=Q6B_1Z.
+     LABEL='Airline industry';
+Q6B_F = Q6B_FX   ;
+ATTRIB Q6B_F FORMAT=Q6B_1Z.
+     LABEL='Computer industry';
+Q6B_G = Q6B_GX   ;
+ATTRIB Q6B_G FORMAT=Q6B_1Z.
+     LABEL='Steel industry';
+Q6B_H = Q6B_HX   ;
+ATTRIB Q6B_H FORMAT=Q6B_1Z.
+     LABEL='Insurance companies';
+Q6B_I = Q6B_IX   ;
+ATTRIB Q6B_I FORMAT=Q6B_1Z.
+     LABEL='Tobacco industry';
+Q6C_1 = Q6C_1X   ;
+ATTRIB Q6C_1 FORMAT=Q6C_1Z.
+     LABEL='Gasoline';
+Q6C_2 = Q6C_2X   ;
+ATTRIB Q6C_2 FORMAT=Q6C_1Z.
+     LABEL='Fuel oil for home heating';
+Q6C_3 = Q6C_3X   ;
+ATTRIB Q6C_3 FORMAT=Q6C_1Z.
+     LABEL='Electric power for home use';
+Q6C_4 = Q6C_4X   ;
+ATTRIB Q6C_4 FORMAT=Q6C_1Z.
+     LABEL='Fuel oil for industrial use';
+Q6C_5 = Q6C_5X   ;
+ATTRIB Q6C_5 FORMAT=Q6C_1Z.
+     LABEL='Natural gas for industrial use';
+Q6C_6 = Q6C_6X   ;
+ATTRIB Q6C_6 FORMAT=Q6C_1Z.
+     LABEL='Natural gas for home heating';
+Q6C_7 = Q6C_7X   ;
+ATTRIB Q6C_7 FORMAT=Q6C_1Z.
+     LABEL='Fuel for public transportation';
+Q6D_1 = Q6D_1X   ;
+ATTRIB Q6D_1 FORMAT=Q6D_1Z.
+     LABEL='Gasoline';
+Q6D_2 = Q6D_2X   ;
+ATTRIB Q6D_2 FORMAT=Q6D_1Z.
+     LABEL='Fuel oil for home heating';
+Q6D_3 = Q6D_3X   ;
+ATTRIB Q6D_3 FORMAT=Q6D_1Z.
+     LABEL='Electric power for home use';
+Q6D_4 = Q6D_4X   ;
+ATTRIB Q6D_4 FORMAT=Q6D_1Z.
+     LABEL='Fuel oil for industrial use';
+Q6D_5 = Q6D_5X   ;
+ATTRIB Q6D_5 FORMAT=Q6D_1Z.
+     LABEL='Natural gas for industrial use';
+Q6D_6 = Q6D_6X   ;
+ATTRIB Q6D_6 FORMAT=Q6D_1Z.
+     LABEL='Natural gas for home heating';
+Q6D_7 = Q6D_7X   ;
+ATTRIB Q6D_7 FORMAT=Q6D_1Z.
+     LABEL='Fuel for public transportation';
+Q6E_1 = Q6E_1X   ;
+ATTRIB Q6E_1 FORMAT=Q6E_1Z.
+     LABEL='Gasoline';
+Q6E_2 = Q6E_2X   ;
+ATTRIB Q6E_2 FORMAT=Q6E_1Z.
+     LABEL='Fuel oil for home heating';
+Q6E_3 = Q6E_3X   ;
+ATTRIB Q6E_3 FORMAT=Q6E_1Z.
+     LABEL='Electric power for home use';
+Q6E_4 = Q6E_4X   ;
+ATTRIB Q6E_4 FORMAT=Q6E_1Z.
+     LABEL='Fuel oil for industrial use';
+Q6E_5 = Q6E_5X   ;
+ATTRIB Q6E_5 FORMAT=Q6E_1Z.
+     LABEL='Natural gas for industrial use';
+Q6E_6 = Q6E_6X   ;
+ATTRIB Q6E_6 FORMAT=Q6E_1Z.
+     LABEL='Natural gas for home heating';
+Q6E_7 = Q6E_7X   ;
+ATTRIB Q6E_7 FORMAT=Q6E_1Z.
+     LABEL='Fuel for public transportation';
+Q6F = Q6FX     ;
+ATTRIB Q6F FORMAT=Q6FZ.
+     LABEL='Hv y sn r hrd ny ds by ny cmpns n th nrg';
+Q6H = Q6HX     ;
+ATTRIB Q6H FORMAT=Q6HZ.
+     LABEL='Was your reaction to the advertising by ';
+Q6J_1 = Q6J_1X   ;
+ATTRIB Q6J_1 FORMAT=Q6J_1Z.
+     LABEL='Ol cmpns nvntd th gsln shrtg jst s n xcs';
+Q6J_2 = Q6J_2X   ;
+ATTRIB Q6J_2 FORMAT=Q6J_1Z.
+     LABEL='major cause of the shortage of gasoline ';
+Q6J_3 = Q6J_3X   ;
+ATTRIB Q6J_3 FORMAT=Q6J_1Z.
+     LABEL='Oil companies have done a poor job of pl';
+Q6J_4 = Q6J_4X   ;
+ATTRIB Q6J_4 FORMAT=Q6J_1Z.
+     LABEL='Oil companies are unfairly restricted by';
+Q6J_5 = Q6J_5X   ;
+ATTRIB Q6J_5 FORMAT=Q6J_1Z.
+     LABEL='Oil companies invented the gasoline shor';
+Q6J_6 = Q6J_6X   ;
+ATTRIB Q6J_6 FORMAT=Q6J_1Z.
+     LABEL='Price controls over gasoline have wrongf';
+Q6J_7 = Q6J_7X   ;
+ATTRIB Q6J_7 FORMAT=Q6J_1Z.
+     LABEL='Ol cmpns hv dn  pr jb f dscvrng nw l spp';
+Q6J_8 = Q6J_8X   ;
+ATTRIB Q6J_8 FORMAT=Q6J_1Z.
+     LABEL='The government has unnecessarily delayed';
+Q6J_9 = Q6J_9X   ;
+ATTRIB Q6J_9 FORMAT=Q6J_1Z.
+     LABEL='The oil companies in their operations ha';
+Q6J_10 = Q6J_10X  ;
+ATTRIB Q6J_10 FORMAT=Q6J_1Z.
+     LABEL='federal investigation of the internation';
+Q6J_11 = Q6J_11X  ;
+ATTRIB Q6J_11 FORMAT=Q6J_1Z.
+     LABEL='Ol cmpns shld d mr t ttrct qlfd glgsts';
+Q7A = Q7AX     ;
+ATTRIB Q7A FORMAT=Q7AZ.
+     LABEL='How would you rate President Nixon on hi';
+Q7B = Q7BX     ;
+ATTRIB Q7B FORMAT=Q7BZ.
+     LABEL='Do you feel the federal government has s';
+Q7C_1 = Q7C_1X   ;
+ATTRIB Q7C_1 FORMAT=Q7C_1Z.
+     LABEL='Ls mr fdrlly wnd lnds t l cmpns fr xplrt';
+Q7C_2 = Q7C_2X   ;
+ATTRIB Q7C_2 FORMAT=Q7C_1Z.
+     LABEL='Allow oil companies to drill for more oi';
+Q7C_3 = Q7C_3X   ;
+ATTRIB Q7C_3 FORMAT=Q7C_1Z.
+     LABEL='Allw mr l t b mprtd frm brd';
+Q7C_4 = Q7C_4X   ;
+ATTRIB Q7C_4 FORMAT=Q7C_1Z.
+     LABEL='Mr clsly sprvs th prdctn nd s f l, gs, n';
+Q7C_5 = Q7C_5X   ;
+ATTRIB Q7C_5 FORMAT=Q7C_1Z.
+     LABEL='Set a priority of use for the public of ';
+Q7C_6 = Q7C_6X   ;
+ATTRIB Q7C_6 FORMAT=Q7C_1Z.
+     LABEL='Allow companies to sell tax-free bonds f';
+Q7C_7 = Q7C_7X   ;
+ATTRIB Q7C_7 FORMAT=Q7C_1Z.
+     LABEL='Brk p th mjr l cmpns t crt mr cmpttn n t';
+Q7C_8 = Q7C_8X   ;
+ATTRIB Q7C_8 FORMAT=Q7C_1Z.
+     LABEL='Allw cmpns t sll tx-fr bnds t fnnc nclr ';
+Q7C_9 = Q7C_9X   ;
+ATTRIB Q7C_9 FORMAT=Q7C_1Z.
+     LABEL='Frz ll gsln, hm htng, nd pwr prcs tht cn';
+Q7C_10 = Q7C_10X  ;
+ATTRIB Q7C_10 FORMAT=Q7C_1Z.
+     LABEL='Allow companies to take tax deductions f';
+Q7C_11 = Q7C_11X  ;
+ATTRIB Q7C_11 FORMAT=Q7C_1Z.
+     LABEL='Pt p mny fr ndstry rsrch t fnd mr fls nd';
+Q7C_12 = Q7C_12X  ;
+ATTRIB Q7C_12 FORMAT=Q7C_1Z.
+     LABEL='Prmt rlns t ct th spd f thr plns t rdc t';
+Q7C_13 = Q7C_13X  ;
+ATTRIB Q7C_13 FORMAT=Q7C_1Z.
+     LABEL='Allow oil companies and utilities to cha';
+Q7C_14 = Q7C_14X  ;
+ATTRIB Q7C_14 FORMAT=Q7C_1Z.
+     LABEL='Spd p cnstrctn f th lsk l ppln';
+Q7C_15 = Q7C_15X  ;
+ATTRIB Q7C_15 FORMAT=Q7C_1Z.
+     LABEL='Estblsh  prgrssv tx tht wld pnlz cr wnrs';
+Q7C_16 = Q7C_16X  ;
+ATTRIB Q7C_16 FORMAT=Q7C_1Z.
+     LABEL='Provide funds for research and developme';
+Q7C_17 = Q7C_17X  ;
+ATTRIB Q7C_17 FORMAT=Q7C_1Z.
+     LABEL='Adpt mnmm fl cnmy stndrds fr nw crs';
+Q7C_18 = Q7C_18X  ;
+ATTRIB Q7C_18 FORMAT=Q7C_1Z.
+     LABEL='Prvd tx ncntvs t l cmpns t ncrs xplrtn f';
+Q7C_19 = Q7C_19X  ;
+ATTRIB Q7C_19 FORMAT=Q7C_1Z.
+     LABEL='Prhbt th sl f lrg crs lk Cdllcs, Lncln C';
+Q7C_20 = Q7C_20X  ;
+ATTRIB Q7C_20 FORMAT=Q7C_1Z.
+     LABEL='Make mandatory the voluntary government ';
+Q7C_21 = Q7C_21X  ;
+ATTRIB Q7C_21 FORMAT=Q7C_1Z.
+     LABEL='Go on a crash program for developing mas';
+Q7C_22 = Q7C_22X  ;
+ATTRIB Q7C_22 FORMAT=Q7C_1Z.
+     LABEL='Crt  nw fdrl Dprtmnt f nrgy Spply nd Cns';
+Q7C_23 = Q7C_23X  ;
+ATTRIB Q7C_23 FORMAT=Q7C_1Z.
+     LABEL='Place maximum weight, maximum horse powe';
+Q7C_24 = Q7C_24X  ;
+ATTRIB Q7C_24 FORMAT=Q7C_1Z.
+     LABEL='Lmt th mnt f gsln tht cn b prchsd t n tm';
+Q7C_25 = Q7C_25X  ;
+ATTRIB Q7C_25 FORMAT=Q7C_1Z.
+     LABEL='Mk mr fnds vlbl fr dvlpmnt f th Wnkl rtr';
+Q7C_26 = Q7C_26X  ;
+ATTRIB Q7C_26 FORMAT=Q7C_1Z.
+     LABEL='Rlx th stndrds st by th Cln r ct';
+Q7C_27 = Q7C_27X  ;
+ATTRIB Q7C_27 FORMAT=Q7C_1Z.
+     LABEL='Increase the gasoline tax, which would r';
+Q7C_28 = Q7C_28X  ;
+ATTRIB Q7C_28 FORMAT=Q7C_1Z.
+     LABEL='De-regulate the price of natural gas';
+Q8A_1 = Q8A_1X   ;
+ATTRIB Q8A_1 FORMAT=Q8A_1Z.
+     LABEL='Off-shore drilling for oil in the Atlant';
+Q8A_2 = Q8A_2X   ;
+ATTRIB Q8A_2 FORMAT=Q8A_1Z.
+     LABEL='Th lskn ppln wll hrt th nvrnmnt f lsk';
+Q8A_3 = Q8A_3X   ;
+ATTRIB Q8A_3 FORMAT=Q8A_1Z.
+     LABEL='Nw l rfnrs wld gv ff fms nd smk tht wld ';
+Q8A_4 = Q8A_4X   ;
+ATTRIB Q8A_4 FORMAT=Q8A_1Z.
+     LABEL='Nclr pwr plnts r dngrs nd cn gv ff rdctv';
+Q8A_5 = Q8A_5X   ;
+ATTRIB Q8A_5 FORMAT=Q8A_1Z.
+     LABEL='Strp mnng fr cl rns th lnd nd mks th cnt';
+Q8A_6 = Q8A_6X   ;
+ATTRIB Q8A_6 FORMAT=Q8A_1Z.
+     LABEL='It is worth having the new auto emission';
+Q8A_7 = Q8A_7X   ;
+ATTRIB Q8A_7 FORMAT=Q8A_1Z.
+     LABEL='New power plants would give off smoke an';
+Q8A_8 = Q8A_8X   ;
+ATTRIB Q8A_8 FORMAT=Q8A_1Z.
+     LABEL='Mst pwr plnts r mjr plltrs f th lks, rvr';
+Q8A_9 = Q8A_9X   ;
+ATTRIB Q8A_9 FORMAT=Q8A_1Z.
+     LABEL='Spr-tnkrs hv mny ccdnts tht crt l splls';
+Q8A_10 = Q8A_10X  ;
+ATTRIB Q8A_10 FORMAT=Q8A_1Z.
+     LABEL='Ol rfnrs& lctrc pwr plnts mk  cmmnty gly';
+Q8A_11 = Q8A_11X  ;
+ATTRIB Q8A_11 FORMAT=Q8A_1Z.
+     LABEL='No cars should be bigger than today s Ch';
+Q8B_1 = Q8B_1X   ;
+ATTRIB Q8B_1 FORMAT=Q8B_1Z.
+     LABEL='Prohibiting oil companies from drilling ';
+Q8B_2 = Q8B_2X   ;
+ATTRIB Q8B_2 FORMAT=Q8B_1Z.
+     LABEL='Slowing down construction of the Alaska ';
+Q8B_3 = Q8B_3X   ;
+ATTRIB Q8B_3 FORMAT=Q8B_1Z.
+     LABEL='Prohibiting the construction of new oil ';
+Q8B_4 = Q8B_4X   ;
+ATTRIB Q8B_4 FORMAT=Q8B_1Z.
+     LABEL='Prohibiting the construction of nuclear ';
+Q8B_5 = Q8B_5X   ;
+ATTRIB Q8B_5 FORMAT=Q8B_1Z.
+     LABEL='Nt xpndng -- nd vn cttng bck -- strp mnn';
+Q8B_6 = Q8B_6X   ;
+ATTRIB Q8B_6 FORMAT=Q8B_1Z.
+     LABEL='Encouraging the introduction of auto emi';
+Q8B_7 = Q8B_7X   ;
+ATTRIB Q8B_7 FORMAT=Q8B_1Z.
+     LABEL='Prhbtng th cnstrctn f nw pwr plnts nr rs';
+Q8B_8 = Q8B_8X   ;
+ATTRIB Q8B_8 FORMAT=Q8B_1Z.
+     LABEL='Prohibiting power plants from creating t';
+Q8B_9 = Q8B_9X   ;
+ATTRIB Q8B_9 FORMAT=Q8B_1Z.
+     LABEL='Rstrctng th bldng f l nd ntrl gs sprtnkr';
+Q8B_10 = Q8B_10X  ;
+ATTRIB Q8B_10 FORMAT=Q8B_1Z.
+     LABEL='Prohibiting new oil refineries and power';
+Q9A_1 = Q9A_1X   ;
+ATTRIB Q9A_1 FORMAT=Q9A_1Z.
+     LABEL='The federal government';
+Q9A_2 = Q9A_2X   ;
+ATTRIB Q9A_2 FORMAT=Q9A_1Z.
+     LABEL='The oil companies';
+Q9A_3 = Q9A_3X   ;
+ATTRIB Q9A_3 FORMAT=Q9A_1Z.
+     LABEL='Foreign governments';
+Q9A_4 = Q9A_4X   ;
+ATTRIB Q9A_4 FORMAT=Q9A_1Z.
+     LABEL='The U.S. public';
+Q9A_5 = Q9A_5X   ;
+ATTRIB Q9A_5 FORMAT=Q9A_1Z.
+     LABEL='Environmentalists';
+Q9A_6 = Q9A_6X   ;
+ATTRIB Q9A_6 FORMAT=Q9A_1Z.
+     LABEL='Automobile manufacturers';
+Q9A_7 = Q9A_7X   ;
+ATTRIB Q9A_7 FORMAT=Q9A_1Z.
+     LABEL='Utility companies';
+Q9A_8 = Q9A_8X   ;
+ATTRIB Q9A_8 FORMAT=Q9A_1Z.
+     LABEL='Steel manufacturers';
+Q9A_9 = Q9A_9X   ;
+ATTRIB Q9A_9 FORMAT=Q9A_1Z.
+     LABEL='University geologists';
+Q9B_1 = Q9B_1X   ;
+ATTRIB Q9B_1 FORMAT=Q9B_1Z.
+     LABEL='The federal government';
+Q9B_2 = Q9B_2X   ;
+ATTRIB Q9B_2 FORMAT=Q9B_1Z.
+     LABEL='The oil companies';
+Q9B_3 = Q9B_3X   ;
+ATTRIB Q9B_3 FORMAT=Q9B_1Z.
+     LABEL='Foreign governments';
+Q9B_4 = Q9B_4X   ;
+ATTRIB Q9B_4 FORMAT=Q9B_1Z.
+     LABEL='The U.S. public';
+Q9B_5 = Q9B_5X   ;
+ATTRIB Q9B_5 FORMAT=Q9B_1Z.
+     LABEL='Environmentalists';
+Q9B_6 = Q9B_6X   ;
+ATTRIB Q9B_6 FORMAT=Q9B_1Z.
+     LABEL='Automobile manufacturers';
+Q9B_7 = Q9B_7X   ;
+ATTRIB Q9B_7 FORMAT=Q9B_1Z.
+     LABEL='Utility companies';
+Q9B_8 = Q9B_8X   ;
+ATTRIB Q9B_8 FORMAT=Q9B_1Z.
+     LABEL='Steel manufacturers';
+Q9B_9 = Q9B_9X   ;
+ATTRIB Q9B_9 FORMAT=Q9B_1Z.
+     LABEL='University geologists';
+Q10_1 = Q10_1X   ;
+ATTRIB Q10_1 FORMAT=Q10_1Z.
+     LABEL='Electric power for air conditioning';
+Q10_2 = Q10_2X   ;
+ATTRIB Q10_2 FORMAT=Q10_1Z.
+     LABEL='Oil heating';
+Q10_3 = Q10_3X   ;
+ATTRIB Q10_3 FORMAT=Q10_1Z.
+     LABEL='Gas heating';
+Q10_4 = Q10_4X   ;
+ATTRIB Q10_4 FORMAT=Q10_1Z.
+     LABEL='Electric heating';
+Q11A = Q11AX    ;
+ATTRIB Q11A FORMAT=Q11AZ.
+     LABEL='Do you feel it will be a Japanese or Ame';
+P1A = P1AX     ;
+ATTRIB P1A FORMAT=P1AZ.
+     LABEL='Now I d like to ask you a few questions ';
+P1B_1 = P1B_1X   ;
+ATTRIB P1B_1 FORMAT=P1B_1Z.
+     LABEL='Working for peace in the world';
+P1B_2 = P1B_2X   ;
+ATTRIB P1B_2 FORMAT=P1B_1Z.
+     LABEL='Handling relations with Russia';
+P1B_3 = P1B_3X   ;
+ATTRIB P1B_3 FORMAT=P1B_1Z.
+     LABEL='TV speeches and press conferences';
+P1B_4 = P1B_4X   ;
+ATTRIB P1B_4 FORMAT=P1B_1Z.
+     LABEL='Handling crime and law and order';
+P1B_5 = P1B_5X   ;
+ATTRIB P1B_5 FORMAT=P1B_1Z.
+     LABEL='Handling relations with Congress';
+P1B_6 = P1B_6X   ;
+ATTRIB P1B_6 FORMAT=P1B_1Z.
+     LABEL='Handling the Middle East crisis';
+P1B_7 = P1B_7X   ;
+ATTRIB P1B_7 FORMAT=P1B_1Z.
+     LABEL='Keeping the economy healthy';
+P1B_8 = P1B_8X   ;
+ATTRIB P1B_8 FORMAT=P1B_1Z.
+     LABEL='Keeping down the cost of living';
+P1B_9 = P1B_9X   ;
+ATTRIB P1B_9 FORMAT=P1B_1Z.
+     LABEL='Handling relations with Communist China';
+P1B_10 = P1B_10X  ;
+ATTRIB P1B_10 FORMAT=P1B_1Z.
+     LABEL='Handling corruption in government';
+P1B_11 = P1B_11X  ;
+ATTRIB P1B_11 FORMAT=P1B_1Z.
+     LABEL='His Phase 4 program of economic controls';
+P1B_12 = P1B_12X  ;
+ATTRIB P1B_12 FORMAT=P1B_1Z.
+     LABEL='His taking price controls off beef';
+P1B_13 = P1B_13X  ;
+ATTRIB P1B_13 FORMAT=P1B_1Z.
+     LABEL='His keeping price controls on gasoline';
+P1B_14 = P1B_14X  ;
+ATTRIB P1B_14 FORMAT=P1B_1Z.
+     LABEL='Prtctng th rghts nd prvcy f ndvdls';
+P1B_15 = P1B_15X  ;
+ATTRIB P1B_15 FORMAT=P1B_1Z.
+     LABEL='Handling the Watergate case';
+P1B_16 = P1B_16X  ;
+ATTRIB P1B_16 FORMAT=P1B_1Z.
+     LABEL='Hndlng f th rqst fr Wtrgt tps f hs cnvrs';
+P1B_17 = P1B_17X  ;
+ATTRIB P1B_17 FORMAT=P1B_1Z.
+     LABEL='Handling of the ITT antitrust case';
+P1B_18 = P1B_18X  ;
+ATTRIB P1B_18 FORMAT=P1B_1Z.
+     LABEL='Hndlng f th nrgy shrtg (gsln shrtg)';
+P1B_19 = P1B_19X  ;
+ATTRIB P1B_19 FORMAT=P1B_1Z.
+     LABEL='His veto of the $2.00 minimum wage bill';
+P1B_20 = P1B_20X  ;
+ATTRIB P1B_20 FORMAT=P1B_1Z.
+     LABEL='Handling taxes and spending';
+P1B_21 = P1B_21X  ;
+ATTRIB P1B_21 FORMAT=P1B_1Z.
+     LABEL='Hs ppntmnt f Hnry Kssngr s Scrtry f Stt';
+P1B_22 = P1B_22X  ;
+ATTRIB P1B_22 FORMAT=P1B_1Z.
+     LABEL='Insprng cnfdnc prsnlly n th Wht Hs';
+P1D = P1DX     ;
+ATTRIB P1D FORMAT=P1DZ.
+     LABEL='In his latest answers on Watergate, did ';
+P1E = P1EX     ;
+ATTRIB P1E FORMAT=P1EZ.
+     LABEL='In his latest answers on Watergate, did ';
+P1F = P1FX     ;
+ATTRIB P1F FORMAT=P1FZ.
+     LABEL='Do you feel the President has been frank';
+P1G = P1GX     ;
+ATTRIB P1G FORMAT=P1GZ.
+     LABEL='Do you feel President Nixon knew about t';
+P1H = P1HX     ;
+ATTRIB P1H FORMAT=P1HZ.
+     LABEL='How would you rate the hearings of the U';
+P1I_1 = P1I_1X   ;
+ATTRIB P1I_1 FORMAT=P1I_1Z.
+     LABEL='The President is right to say it is more';
+P1I_2 = P1I_2X   ;
+ATTRIB P1I_2 FORMAT=P1I_1Z.
+     LABEL='President Nixon has lost so much credibi';
+P1I_3 = P1I_3X   ;
+ATTRIB P1I_3 FORMAT=P1I_1Z.
+     LABEL='Prsdnt Nxn s  mn f hgh ntgrty';
+P1I_4 = P1I_4X   ;
+ATTRIB P1I_4 FORMAT=P1I_1Z.
+     LABEL='Prsdnt Nxn ds nt nspr cnfdnc s  Prsdnt s';
+P1I_5 = P1I_5X   ;
+ATTRIB P1I_5 FORMAT=P1I_1Z.
+     LABEL='President Nixon is right when he says th';
+P1I_6 = P1I_6X   ;
+ATTRIB P1I_6 FORMAT=P1I_1Z.
+     LABEL='Wtrgt hs trnd t t b th wrst scndl n r hs';
+P1J = P1JX     ;
+ATTRIB P1J FORMAT=P1JZ.
+     LABEL='If it is proven that President Nixon kne';
+P1K = P1KX     ;
+ATTRIB P1K FORMAT=P1KZ.
+     LABEL='In view of what has happened in the Wate';
+P1L = P1LX     ;
+ATTRIB P1L FORMAT=P1LZ.
+     LABEL='If the U.S. Senate Watergate Committee d';
+P1M = P1MX     ;
+ATTRIB P1M FORMAT=P1MZ.
+     LABEL='Suppose the federal courts tell Presiden';
+P2A = P2AX     ;
+ATTRIB P2A FORMAT=P2AZ.
+     LABEL='Do you feel prices of most things you bu';
+P2B = P2BX     ;
+ATTRIB P2B FORMAT=P2BZ.
+     LABEL='Compared to a year ago, do you feel the ';
+P2C = P2CX     ;
+ATTRIB P2C FORMAT=P2CZ.
+     LABEL='D y fl th cntry s n  rcssn tdy, r nt';
+P2D = P2DX     ;
+ATTRIB P2D FORMAT=P2DZ.
+     LABEL='By ths tm nxt yr, d y thnk th cntry wll ';
+P2E = P2EX     ;
+ATTRIB P2E FORMAT=P2EZ.
+     LABEL='year from now, do you expect the prices ';
+P2F = P2FX     ;
+ATTRIB P2F FORMAT=P2FZ.
+     LABEL='Do you feel inflation in the country has';
+P2G = P2GX     ;
+ATTRIB P2G FORMAT=P2GZ.
+     LABEL='In the last year, do you feel your (fami';
+P2H = P2HX     ;
+ATTRIB P2H FORMAT=P2HZ.
+     LABEL='Have you postponed buying any products o';
+P2J = P2JX     ;
+ATTRIB P2J FORMAT=P2JZ.
+     LABEL='In the past 12 months, have you or have ';
+P2L_1 = P2L_1X   ;
+ATTRIB P2L_1 FORMAT=P2L_1Z.
+     LABEL='A new car';
+P2L_2 = P2L_2X   ;
+ATTRIB P2L_2 FORMAT=P2L_1Z.
+     LABEL='A new house';
+P2L_3 = P2L_3X   ;
+ATTRIB P2L_3 FORMAT=P2L_1Z.
+     LABEL='A vacation trip on an airline';
+P2L_4 = P2L_4X   ;
+ATTRIB P2L_4 FORMAT=P2L_1Z.
+     LABEL='A new life insurance policy';
+P2L_5 = P2L_5X   ;
+ATTRIB P2L_5 FORMAT=P2L_1Z.
+     LABEL='A new homeowners insurance policy';
+P2L_6 = P2L_6X   ;
+ATTRIB P2L_6 FORMAT=P2L_1Z.
+     LABEL='A new auto insurance policy';
+P2L_7 = P2L_7X   ;
+ATTRIB P2L_7 FORMAT=P2L_1Z.
+     LABEL='New furniture';
+P2L_8 = P2L_8X   ;
+ATTRIB P2L_8 FORMAT=P2L_1Z.
+     LABEL='New electrical appliances';
+P2L_9 = P2L_9X   ;
+ATTRIB P2L_9 FORMAT=P2L_1Z.
+     LABEL='Stocks';
+P2L_10 = P2L_10X  ;
+ATTRIB P2L_10 FORMAT=P2L_1Z.
+     LABEL='Mutual funds';
+P2L_11 = P2L_11X  ;
+ATTRIB P2L_11 FORMAT=P2L_1Z.
+     LABEL='Corporate bonds';
+P2L_12 = P2L_12X  ;
+ATTRIB P2L_12 FORMAT=P2L_1Z.
+     LABEL='Savings certificates';
+P2M_1 = P2M_1X   ;
+ATTRIB P2M_1 FORMAT=P2M_1Z.
+     LABEL='A new car';
+P2M_2 = P2M_2X   ;
+ATTRIB P2M_2 FORMAT=P2M_1Z.
+     LABEL='A new house';
+P2M_3 = P2M_3X   ;
+ATTRIB P2M_3 FORMAT=P2M_1Z.
+     LABEL='A vacation trip on an airline';
+P2M_4 = P2M_4X   ;
+ATTRIB P2M_4 FORMAT=P2M_1Z.
+     LABEL='A new life insurance policy';
+P2M_5 = P2M_5X   ;
+ATTRIB P2M_5 FORMAT=P2M_1Z.
+     LABEL='A new homeowners insurance policy';
+P2M_6 = P2M_6X   ;
+ATTRIB P2M_6 FORMAT=P2M_1Z.
+     LABEL='New furniture';
+P2M_7 = P2M_7X   ;
+ATTRIB P2M_7 FORMAT=P2M_1Z.
+     LABEL='Food';
+P2M_8 = P2M_8X   ;
+ATTRIB P2M_8 FORMAT=P2M_1Z.
+     LABEL='New electrical appliances';
+P2M_9 = P2M_9X   ;
+ATTRIB P2M_9 FORMAT=P2M_1Z.
+     LABEL='Gasoline for your car';
+P2M_10 = P2M_10X  ;
+ATTRIB P2M_10 FORMAT=P2M_1Z.
+     LABEL='Stocks';
+P2M_11 = P2M_11X  ;
+ATTRIB P2M_11 FORMAT=P2M_1Z.
+     LABEL='Mutual funds';
+P2M_12 = P2M_12X  ;
+ATTRIB P2M_12 FORMAT=P2M_1Z.
+     LABEL='Savings certificates';
+P2M_13 = P2M_13X  ;
+ATTRIB P2M_13 FORMAT=P2M_1Z.
+     LABEL='Clothing';
+P2N = P2NX     ;
+ATTRIB P2N FORMAT=P2NZ.
+     LABEL='Do you feel this is a better time to put';
+P2O = P2OX     ;
+ATTRIB P2O FORMAT=P2OZ.
+     LABEL='Would you favor or oppose the federal go';
+P3A = P3AX     ;
+ATTRIB P3A FORMAT=P3AZ.
+     LABEL='Compared to 10 years ago, would you say ';
+P3B_1 = P3B_1X   ;
+ATTRIB P3B_1 FORMAT=P3B_1Z.
+     LABEL='Television sets';
+P3B_2 = P3B_2X   ;
+ATTRIB P3B_2 FORMAT=P3B_1Z.
+     LABEL='Automobiles';
+P3B_3 = P3B_3X   ;
+ATTRIB P3B_3 FORMAT=P3B_1Z.
+     LABEL='Automobile tires';
+P3B_4 = P3B_4X   ;
+ATTRIB P3B_4 FORMAT=P3B_1Z.
+     LABEL='Mjr hshld pplncs sch s stvs, rfrgrtrs, w';
+P3B_5 = P3B_5X   ;
+ATTRIB P3B_5 FORMAT=P3B_1Z.
+     LABEL='Smll pplncs sch s tstrs, blndrs, tc';
+P3B_6 = P3B_6X   ;
+ATTRIB P3B_6 FORMAT=P3B_1Z.
+     LABEL='New home construction';
+P3B_7 = P3B_7X   ;
+ATTRIB P3B_7 FORMAT=P3B_1Z.
+     LABEL='Drugs and medicine';
+P3B_8 = P3B_8X   ;
+ATTRIB P3B_8 FORMAT=P3B_1Z.
+     LABEL='Packaged foods';
+P3B_9 = P3B_9X   ;
+ATTRIB P3B_9 FORMAT=P3B_1Z.
+     LABEL='Clothing';
+P3B_10 = P3B_10X  ;
+ATTRIB P3B_10 FORMAT=P3B_1Z.
+     LABEL='Fresh meats and vegetables';
+P3B_11 = P3B_11X  ;
+ATTRIB P3B_11 FORMAT=P3B_1Z.
+     LABEL='Soaps and detergents';
+P3B_12 = P3B_12X  ;
+ATTRIB P3B_12 FORMAT=P3B_1Z.
+     LABEL='Service from airlines';
+P3B_13 = P3B_13X  ;
+ATTRIB P3B_13 FORMAT=P3B_1Z.
+     LABEL='Service from insurance agents';
+P3B_14 = P3B_14X  ;
+ATTRIB P3B_14 FORMAT=P3B_1Z.
+     LABEL='Service from commercial banks';
+P3B_15 = P3B_15X  ;
+ATTRIB P3B_15 FORMAT=P3B_1Z.
+     LABEL='Service from homeowners insurance agents';
+P3B_16 = P3B_16X  ;
+ATTRIB P3B_16 FORMAT=P3B_1Z.
+     LABEL='Aluminum wrapping';
+P3B_17 = P3B_17X  ;
+ATTRIB P3B_17 FORMAT=P3B_1Z.
+     LABEL='Paper wrapping';
+P4A = P4AX     ;
+ATTRIB P4A FORMAT=P4AZ.
+     LABEL='Did you vote in the election for Preside';
+P4B = P4BX     ;
+ATTRIB P4B FORMAT=P4BZ.
+     LABEL='Regardless of how you might vote, what d';
+P4C = P4CX     ;
+ATTRIB P4C FORMAT=P4CZ.
+     LABEL='In 1972, dd y vt fr McGvrn th Dmcrt, Nxn';
+P4D = P4DX     ;
+ATTRIB P4D FORMAT=P4DZ.
+     LABEL='If you had to do it all over again, who ';
+P5A = P5AX     ;
+ATTRIB P5A FORMAT=P5AZ.
+     LABEL='Suppose for President in 1976, it were b';
+P5B = P5BX     ;
+ATTRIB P5B FORMAT=P5BZ.
+     LABEL='Well, if you had to say, would you lean ';
+P6A = P6AX     ;
+ATTRIB P6A FORMAT=P6AZ.
+     LABEL='Suppose for President in 1976, it were b';
+P6B = P6BX     ;
+ATTRIB P6B FORMAT=P6BZ.
+     LABEL='Well, if you had to say, would you lean ';
+P7A = P7AX     ;
+ATTRIB P7A FORMAT=P7AZ.
+     LABEL='And supposing for President in 1976, it ';
+P7B = P7BX     ;
+ATTRIB P7B FORMAT=P7BZ.
+     LABEL='Well, if you had to say, would you lean ';
+P8A = P8AX     ;
+ATTRIB P8A FORMAT=P8AZ.
+     LABEL='In the election next year in 1974, for C';
+P8B = P8BX     ;
+ATTRIB P8B FORMAT=P8BZ.
+     LABEL='Well, if you had to say, would you lean ';
+P9A = P9AX     ;
+ATTRIB P9A FORMAT=P9AZ.
+     LABEL='Do you feel certain you will take a trip';
+P9B = P9BX     ;
+ATTRIB P9B FORMAT=P9BZ.
+     LABEL='Do you feel certain you will take a trip';
+P10A = P10AX    ;
+ATTRIB P10A FORMAT=P10AZ.
+     LABEL='The black-out on pro football telecasts ';
+P10B = P10BX    ;
+ATTRIB P10B FORMAT=P10BZ.
+     LABEL='Suppose the recently lifted black-out on';
+P10C_1 = P10C_1X  ;
+ATTRIB P10C_1 FORMAT=P10C_1Z.
+     LABEL='Refuse to turn over White House files de';
+P10C_2 = P10C_2X  ;
+ATTRIB P10C_2 FORMAT=P10C_1z.
+     LABEL='Rfs t trn vr tps f cnvrstns h hd dlng wt';
+P10C_3 = P10C_3X  ;
+ATTRIB P10C_3 FORMAT=P10C_1z.
+     LABEL='Appeal the decision of Judge Sirica that';
+P10D = P10DX    ;
+ATTRIB P10D FORMAT=P10DZ.
+     LABEL='Suppose the federal courts tell Presiden';
+F1 = F1X      ;
+ATTRIB F1 FORMAT=F1Z.
+     LABEL='Do you presently own a car or not?';
+F2 = F2X      ;
+ATTRIB F2 FORMAT=F2Z.
+     LABEL='How many cars do you own?';
+F4 = F4X      ;
+ATTRIB F4 FORMAT=F4Z.
+     LABEL='Ws th mst rcnt cr tht y bght nw r sd';
+F5 = F5X      ;
+ATTRIB F5 FORMAT=F5Z.
+     LABEL='What would the price of gasoline have to';
+F6 = F6X      ;
+ATTRIB F6 FORMAT=F6Z.
+     LABEL='If gasoline were ever to rise to $1 per ';
+F7_1 = F7_1X    ;
+ATTRIB F7_1 FORMAT=F7_1Z.
+     LABEL='Train';
+F7_2 = F7_2X    ;
+ATTRIB F7_2 FORMAT=F7_1Z.
+     LABEL='Plane';
+F7_3 = F7_3X    ;
+ATTRIB F7_3 FORMAT=F7_1Z.
+     LABEL='Ship';
+F7_4 = F7_4X    ;
+ATTRIB F7_4 FORMAT=F7_1Z.
+     LABEL='Subway';
+F7_5 = F7_5X    ;
+ATTRIB F7_5 FORMAT=F7_1Z.
+     LABEL='Bus';
+F7_6 = F7_6X    ;
+ATTRIB F7_6 FORMAT=F7_1Z.
+     LABEL='Ferry';
+F7_7 = F7_7X    ;
+ATTRIB F7_7 FORMAT=F7_1Z.
+     LABEL='Taxi';
+F8 = F8X      ;
+ATTRIB F8 FORMAT=F8Z.
+     LABEL='Do you feel that you are getting suffici';
+F9_1 = F9_1X    ;
+ATTRIB F9_1 FORMAT=F9_1Z.
+     LABEL='Newspapers';
+F9_2 = F9_2X    ;
+ATTRIB F9_2 FORMAT=F9_1Z.
+     LABEL='Radio news';
+F9_3 = F9_3X    ;
+ATTRIB F9_3 FORMAT=F9_1Z.
+     LABEL='Television news';
+F9_4 = F9_4X    ;
+ATTRIB F9_4 FORMAT=F9_1Z.
+     LABEL='News magazines';
+F9_5 = F9_5X    ;
+ATTRIB F9_5 FORMAT=F9_1Z.
+     LABEL='Talking to friends (and people at work)';
+F9_6 = F9_6X    ;
+ATTRIB F9_6 FORMAT=F9_1Z.
+     LABEL='Oil and utility company publications';
+F9_7 = F9_7X    ;
+ATTRIB F9_7 FORMAT=F9_1Z.
+     LABEL='Lttrs nd mlngs frm lctd ffcls';
+F9_8 = F9_8X    ;
+ATTRIB F9_8 FORMAT=F9_1Z.
+     LABEL='Local gasoline station';
+F9_9 = F9_9X    ;
+ATTRIB F9_9 FORMAT=F9_1Z.
+     LABEL='Private newsletters';
+F9_10 = F9_10X   ;
+ATTRIB F9_10 FORMAT=F9_1Z.
+     LABEL='Local church';
+F9_11 = F9_11X   ;
+ATTRIB F9_11 FORMAT=F9_1Z.
+     LABEL='Special reports, special publications';
+F9_12 = F9_12X   ;
+ATTRIB F9_12 FORMAT=F9_1Z.
+     LABEL='Union publications';
+F9_13 = F9_13X   ;
+ATTRIB F9_13 FORMAT=F9_1Z.
+     LABEL='Business publications';
+F9_14 = F9_14X   ;
+ATTRIB F9_14 FORMAT=F9_1Z.
+     LABEL='Lectures, formal talks';
+F10 = F10X     ;
+ATTRIB F10 FORMAT=F10Z.
+     LABEL='How would you rate your knowledge of the';
+F11 = F11X     ;
+ATTRIB F11 FORMAT=F11Z.
+     LABEL='What is your position in this household?';
+F12A = F12AX    ;
+ATTRIB F12A FORMAT=F12AZ.
+     LABEL='Is the head of the household an hourly w';
+F12B = F12BX    ;
+ATTRIB F12B FORMAT=F12BZ.
+     LABEL='What type of work does (did, if retired)';
+F13 = F13X     ;
+ATTRIB F13 FORMAT=F13Z.
+     LABEL='Ar y sngl, mrrd, wdwd, dvrcd r sprtd';
+F14 = F14X     ;
+ATTRIB F14 FORMAT=F14Z.
+     LABEL='In what age group are you? (READ LIST) I';
+F15 = F15X     ;
+ATTRIB F15 FORMAT=F15Z.
+     LABEL='(HAND RESPONDENT CARD""B"") Would you pl';
+ ATTRIB F16_1 FORMAT=YESNO.
+             LABEL= 'Self is member' ;
+ ATTRIB F16_2 FORMAT=YESNO.
+             LABEL= 'Other is member' ;
+ ATTRIB F16_3 FORMAT=YESNO.
+             LABEL= 'No union member in household' ;
+ ATTRIB F16_4 FORMAT=YESNO.
+           LABEL  = 'Not sure';
+F17 = F17X     ;
+ATTRIB F17 FORMAT=F17Z.
+     LABEL='For statistical purposes only, we need t';
+ATTRIB F19_1 FORMAT=YESNO.
+     LABEL='U S A';
+ATTRIB F19_2 FORMAT=YESNO.
+     LABEL='Canada';
+ATTRIB F19_3 FORMAT=YESNO.
+     LABEL='Puerto Rico';
+ATTRIB F19_4 FORMAT=YESNO.
+     LABEL='Other Caribbean';
+ATTRIB F19_5 FORMAT=YESNO.
+     LABEL='Other Latin and South America';
+ATTRIB F19_6 FORMAT=YESNO.
+     LABEL='Ireland';
+ATTRIB F19_7 FORMAT=YESNO.
+     LABEL='England, Scotland, Wales';
+ATTRIB F19_8 FORMAT=YESNO.
+     LABEL='Scandinavia';
+ATTRIB F19_9 FORMAT=YESNO.
+     LABEL='Germany';
+ATTRIB F19_10 FORMAT=YESNO.
+     LABEL='France';
+ATTRIB F19_11 FORMAT=YESNO.
+     LABEL='Italy';
+ATTRIB F19_12 FORMAT=YESNO.
+     LABEL='Spain or Portugal';
+ATTRIB F19_13 FORMAT=YESNO.
+     LABEL='Other Western Europe (specify)';
+ATTRIB F19_14 FORMAT=YESNO.
+     LABEL='Austria or Hungary';
+ATTRIB F19_15 FORMAT=YESNO.
+     LABEL='Poland';
+ATTRIB F19_16 FORMAT=YESNO.
+     LABEL='Russia';
+ATTRIB F19_17 FORMAT=YESNO.
+     LABEL='Other Eastern Europe (specify)';
+ATTRIB F19_18 FORMAT=YESNO.
+     LABEL='Asia';
+ATTRIB F19_19 FORMAT=YESNO.
+     LABEL='Africa';
+ATTRIB F19_20 FORMAT=YESNO.
+     LABEL='Other (specify)';
+ATTRIB F19_21 FORMAT=YESNO.
+     LABEL='Not sure';
+F20 = F20X     ;
+ATTRIB F20 FORMAT=F20Z.
+     LABEL='(RCRD TH FLLWNG--D NT SK) thnc Grp r Rcl';
+F21 = F21X     ;
+ATTRIB F21 FORMAT=F21Z.
+     LABEL='(RCRD TH FLLWNG--D NT SK) Rspndnt s';
+IF F22X   GT 3    THEN F22 =  F22X-3;
+IF F22X      =  3 THEN F22 = 10;
+IF F22X      =  2 THEN F22 = 11;
+IF F22X      = 1  THEN F22 = 12;
+ATTRIB F22 FORMAT=F22Z.
+     LABEL='"Length of interview (""X"" ONLY ONE):"';
+F18 = F18X     ;
+ATTRIB F18 FORMAT=F18Z.
+     LABEL='What is your religion?'; /*
+%PUTMERGE('H-2345-100-36')
+PUT ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-100-50')
+PUT ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-100-57')
+PUT ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-101-13')
+PUT ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-101-83')
+PUT ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-101-97')
+PUT ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-102-67')
+PUT ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-102-88')
+PUT ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-103-65')
+PUT ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-104-28')
+PUT ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-104-42')
+PUT ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-104-77')
+PUT ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-106-38')
+PUT ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-100-15')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES S11 / OUT=TEMP;
+%FREQOUT(TEMP,S11);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-100-22')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES S13 / OUT=TEMP;
+%FREQOUT(TEMP,S13);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-100-29')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q1A / OUT=TEMP;
+%FREQOUT(TEMP,Q1A);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-100-43-1')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q1C_1 / OUT=TEMP;
+%FREQOUT(TEMP,Q1C_1);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q1C_2 / OUT=TEMP;
+%FREQOUT(TEMP,Q1C_2);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q1C_3 / OUT=TEMP;
+%FREQOUT(TEMP,Q1C_3);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q1C_4 / OUT=TEMP;
+%FREQOUT(TEMP,Q1C_4);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q1C_5 / OUT=TEMP;
+%FREQOUT(TEMP,Q1C_5);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q1C_6 / OUT=TEMP;
+%FREQOUT(TEMP,Q1C_6);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q1C_7 / OUT=TEMP;
+%FREQOUT(TEMP,Q1C_7);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q1C_8 / OUT=TEMP;
+%FREQOUT(TEMP,Q1C_8);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q1C_9 / OUT=TEMP;
+%FREQOUT(TEMP,Q1C_9);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q1C_10 / OUT=TEMP;
+%FREQOUT(TEMP,Q1C_10);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q1C_11 / OUT=TEMP;
+%FREQOUT(TEMP,Q1C_11);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q1C_12 / OUT=TEMP;
+%FREQOUT(TEMP,Q1C_12);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-100-43-2')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q1D_1 / OUT=TEMP;
+%FREQOUT(TEMP,Q1D_1);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q1D_2 / OUT=TEMP;
+%FREQOUT(TEMP,Q1D_2);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q1D_3 / OUT=TEMP;
+%FREQOUT(TEMP,Q1D_3);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q1D_4 / OUT=TEMP;
+%FREQOUT(TEMP,Q1D_4);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q1D_5 / OUT=TEMP;
+%FREQOUT(TEMP,Q1D_5);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q1D_6 / OUT=TEMP;
+%FREQOUT(TEMP,Q1D_6);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q1D_7 / OUT=TEMP;
+%FREQOUT(TEMP,Q1D_7);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q1D_8 / OUT=TEMP;
+%FREQOUT(TEMP,Q1D_8);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q1D_9 / OUT=TEMP;
+%FREQOUT(TEMP,Q1D_9);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q1D_10 / OUT=TEMP;
+%FREQOUT(TEMP,Q1D_10);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q1D_11 / OUT=TEMP;
+%FREQOUT(TEMP,Q1D_11);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q1D_12 / OUT=TEMP;
+%FREQOUT(TEMP,Q1D_12);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-100-64')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q2A / OUT=TEMP;
+%FREQOUT(TEMP,Q2A);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-100-71')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q2B_1 / OUT=TEMP;
+%FREQOUT(TEMP,Q2B_1);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q2B_2 / OUT=TEMP;
+%FREQOUT(TEMP,Q2B_2);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q2B_3 / OUT=TEMP;
+%FREQOUT(TEMP,Q2B_3);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q2B_4 / OUT=TEMP;
+%FREQOUT(TEMP,Q2B_4);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q2B_5 / OUT=TEMP;
+%FREQOUT(TEMP,Q2B_5);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-100-78')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q2C_1 / OUT=TEMP;
+%FREQOUT(TEMP,Q2C_1);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q2C_2 / OUT=TEMP;
+%FREQOUT(TEMP,Q2C_2);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q2C_3 / OUT=TEMP;
+%FREQOUT(TEMP,Q2C_3);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q2C_4 / OUT=TEMP;
+%FREQOUT(TEMP,Q2C_4);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q2C_5 / OUT=TEMP;
+%FREQOUT(TEMP,Q2C_5);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-100-85')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q3_A / OUT=TEMP;
+%FREQOUT(TEMP,Q3_A);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q3_B / OUT=TEMP;
+%FREQOUT(TEMP,Q3_B);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q3_C / OUT=TEMP;
+%FREQOUT(TEMP,Q3_C);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q3_D / OUT=TEMP;
+%FREQOUT(TEMP,Q3_D);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q3_E / OUT=TEMP;
+%FREQOUT(TEMP,Q3_E);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q3_F / OUT=TEMP;
+%FREQOUT(TEMP,Q3_F);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q3_G / OUT=TEMP;
+%FREQOUT(TEMP,Q3_G);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q3_H / OUT=TEMP;
+%FREQOUT(TEMP,Q3_H);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q3_I / OUT=TEMP;
+%FREQOUT(TEMP,Q3_I);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q3_J / OUT=TEMP;
+%FREQOUT(TEMP,Q3_J);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q3_K / OUT=TEMP;
+%FREQOUT(TEMP,Q3_K);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q3_L / OUT=TEMP;
+%FREQOUT(TEMP,Q3_L);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q3_M / OUT=TEMP;
+%FREQOUT(TEMP,Q3_M);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q3_N / OUT=TEMP;
+%FREQOUT(TEMP,Q3_N);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q3_O / OUT=TEMP;
+%FREQOUT(TEMP,Q3_O);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-100-92')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q4A_1 / OUT=TEMP;
+%FREQOUT(TEMP,Q4A_1);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q4A_2 / OUT=TEMP;
+%FREQOUT(TEMP,Q4A_2);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q4A_3 / OUT=TEMP;
+%FREQOUT(TEMP,Q4A_3);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q4A_4 / OUT=TEMP;
+%FREQOUT(TEMP,Q4A_4);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-100-99')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q4B_1 / OUT=TEMP;
+%FREQOUT(TEMP,Q4B_1);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q4B_2 / OUT=TEMP;
+%FREQOUT(TEMP,Q4B_2);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q4B_3 / OUT=TEMP;
+%FREQOUT(TEMP,Q4B_3);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q4B_4 / OUT=TEMP;
+%FREQOUT(TEMP,Q4B_4);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q4B_5 / OUT=TEMP;
+%FREQOUT(TEMP,Q4B_5);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q4B_6 / OUT=TEMP;
+%FREQOUT(TEMP,Q4B_6);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q4B_7 / OUT=TEMP;
+%FREQOUT(TEMP,Q4B_7);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q4B_8 / OUT=TEMP;
+%FREQOUT(TEMP,Q4B_8);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q4B_9 / OUT=TEMP;
+%FREQOUT(TEMP,Q4B_9);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q4B_10 / OUT=TEMP;
+%FREQOUT(TEMP,Q4B_10);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q4B_11 / OUT=TEMP;
+%FREQOUT(TEMP,Q4B_11);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q4B_12 / OUT=TEMP;
+%FREQOUT(TEMP,Q4B_12);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q4B_13 / OUT=TEMP;
+%FREQOUT(TEMP,Q4B_13);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q4B_14 / OUT=TEMP;
+%FREQOUT(TEMP,Q4B_14);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-101-6')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q4C / OUT=TEMP;
+%FREQOUT(TEMP,Q4C);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-101-20')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q5A / OUT=TEMP;
+%FREQOUT(TEMP,Q5A);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-101-27')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q5B_1 / OUT=TEMP;
+%FREQOUT(TEMP,Q5B_1);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q5B_2 / OUT=TEMP;
+%FREQOUT(TEMP,Q5B_2);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q5B_3 / OUT=TEMP;
+%FREQOUT(TEMP,Q5B_3);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q5B_4 / OUT=TEMP;
+%FREQOUT(TEMP,Q5B_4);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q5B_5 / OUT=TEMP;
+%FREQOUT(TEMP,Q5B_5);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q5B_6 / OUT=TEMP;
+%FREQOUT(TEMP,Q5B_6);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q5B_7 / OUT=TEMP;
+%FREQOUT(TEMP,Q5B_7);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q5B_8 / OUT=TEMP;
+%FREQOUT(TEMP,Q5B_8);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q5B_9 / OUT=TEMP;
+%FREQOUT(TEMP,Q5B_9);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q5B_10 / OUT=TEMP;
+%FREQOUT(TEMP,Q5B_10);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q5B_11 / OUT=TEMP;
+%FREQOUT(TEMP,Q5B_11);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-101-34')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q5C_1 / OUT=TEMP;
+%FREQOUT(TEMP,Q5C_1);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q5C_2 / OUT=TEMP;
+%FREQOUT(TEMP,Q5C_2);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q5C_3 / OUT=TEMP;
+%FREQOUT(TEMP,Q5C_3);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q5C_4 / OUT=TEMP;
+%FREQOUT(TEMP,Q5C_4);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q5C_5 / OUT=TEMP;
+%FREQOUT(TEMP,Q5C_5);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q5C_6 / OUT=TEMP;
+%FREQOUT(TEMP,Q5C_6);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q5C_7 / OUT=TEMP;
+%FREQOUT(TEMP,Q5C_7);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q5C_8 / OUT=TEMP;
+%FREQOUT(TEMP,Q5C_8);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q5C_9 / OUT=TEMP;
+%FREQOUT(TEMP,Q5C_9);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q5C_10 / OUT=TEMP;
+%FREQOUT(TEMP,Q5C_10);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-101-41')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6A_1 / OUT=TEMP;
+%FREQOUT(TEMP,Q6A_1);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6A_2 / OUT=TEMP;
+%FREQOUT(TEMP,Q6A_2);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6A_3 / OUT=TEMP;
+%FREQOUT(TEMP,Q6A_3);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6A_4 / OUT=TEMP;
+%FREQOUT(TEMP,Q6A_4);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6A_5 / OUT=TEMP;
+%FREQOUT(TEMP,Q6A_5);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-101-48')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6B_A / OUT=TEMP;
+%FREQOUT(TEMP,Q6B_A);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6B_B / OUT=TEMP;
+%FREQOUT(TEMP,Q6B_B);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6B_C / OUT=TEMP;
+%FREQOUT(TEMP,Q6B_C);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6B_D / OUT=TEMP;
+%FREQOUT(TEMP,Q6B_D);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6B_E / OUT=TEMP;
+%FREQOUT(TEMP,Q6B_E);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6B_F / OUT=TEMP;
+%FREQOUT(TEMP,Q6B_F);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6B_G / OUT=TEMP;
+%FREQOUT(TEMP,Q6B_G);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6B_H / OUT=TEMP;
+%FREQOUT(TEMP,Q6B_H);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6B_I / OUT=TEMP;
+%FREQOUT(TEMP,Q6B_I);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-101-55')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6C_1 / OUT=TEMP;
+%FREQOUT(TEMP,Q6C_1);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6C_2 / OUT=TEMP;
+%FREQOUT(TEMP,Q6C_2);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6C_3 / OUT=TEMP;
+%FREQOUT(TEMP,Q6C_3);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6C_4 / OUT=TEMP;
+%FREQOUT(TEMP,Q6C_4);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6C_5 / OUT=TEMP;
+%FREQOUT(TEMP,Q6C_5);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6C_6 / OUT=TEMP;
+%FREQOUT(TEMP,Q6C_6);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6C_7 / OUT=TEMP;
+%FREQOUT(TEMP,Q6C_7);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-101-62')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6D_1 / OUT=TEMP;
+%FREQOUT(TEMP,Q6D_1);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6D_2 / OUT=TEMP;
+%FREQOUT(TEMP,Q6D_2);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6D_3 / OUT=TEMP;
+%FREQOUT(TEMP,Q6D_3);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6D_4 / OUT=TEMP;
+%FREQOUT(TEMP,Q6D_4);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6D_5 / OUT=TEMP;
+%FREQOUT(TEMP,Q6D_5);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6D_6 / OUT=TEMP;
+%FREQOUT(TEMP,Q6D_6);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6D_7 / OUT=TEMP;
+%FREQOUT(TEMP,Q6D_7);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-101-69')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6E_1 / OUT=TEMP;
+%FREQOUT(TEMP,Q6E_1);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6E_2 / OUT=TEMP;
+%FREQOUT(TEMP,Q6E_2);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6E_3 / OUT=TEMP;
+%FREQOUT(TEMP,Q6E_3);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6E_4 / OUT=TEMP;
+%FREQOUT(TEMP,Q6E_4);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6E_5 / OUT=TEMP;
+%FREQOUT(TEMP,Q6E_5);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6E_6 / OUT=TEMP;
+%FREQOUT(TEMP,Q6E_6);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6E_7 / OUT=TEMP;
+%FREQOUT(TEMP,Q6E_7);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-101-76')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6F / OUT=TEMP;
+%FREQOUT(TEMP,Q6F);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-101-90')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6H / OUT=TEMP;
+%FREQOUT(TEMP,Q6H);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-102-4')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6J_1 / OUT=TEMP;
+%FREQOUT(TEMP,Q6J_1);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6J_2 / OUT=TEMP;
+%FREQOUT(TEMP,Q6J_2);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6J_3 / OUT=TEMP;
+%FREQOUT(TEMP,Q6J_3);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6J_4 / OUT=TEMP;
+%FREQOUT(TEMP,Q6J_4);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6J_5 / OUT=TEMP;
+%FREQOUT(TEMP,Q6J_5);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6J_6 / OUT=TEMP;
+%FREQOUT(TEMP,Q6J_6);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6J_7 / OUT=TEMP;
+%FREQOUT(TEMP,Q6J_7);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6J_8 / OUT=TEMP;
+%FREQOUT(TEMP,Q6J_8);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6J_9 / OUT=TEMP;
+%FREQOUT(TEMP,Q6J_9);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6J_10 / OUT=TEMP;
+%FREQOUT(TEMP,Q6J_10);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q6J_11 / OUT=TEMP;
+%FREQOUT(TEMP,Q6J_11);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-102-11')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7A / OUT=TEMP;
+%FREQOUT(TEMP,Q7A);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-102-18')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7B / OUT=TEMP;
+%FREQOUT(TEMP,Q7B);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-102-25')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7C_1 / OUT=TEMP;
+%FREQOUT(TEMP,Q7C_1);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7C_2 / OUT=TEMP;
+%FREQOUT(TEMP,Q7C_2);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7C_3 / OUT=TEMP;
+%FREQOUT(TEMP,Q7C_3);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7C_4 / OUT=TEMP;
+%FREQOUT(TEMP,Q7C_4);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7C_5 / OUT=TEMP;
+%FREQOUT(TEMP,Q7C_5);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7C_6 / OUT=TEMP;
+%FREQOUT(TEMP,Q7C_6);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7C_7 / OUT=TEMP;
+%FREQOUT(TEMP,Q7C_7);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7C_8 / OUT=TEMP;
+%FREQOUT(TEMP,Q7C_8);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7C_9 / OUT=TEMP;
+%FREQOUT(TEMP,Q7C_9);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7C_10 / OUT=TEMP;
+%FREQOUT(TEMP,Q7C_10);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7C_11 / OUT=TEMP;
+%FREQOUT(TEMP,Q7C_11);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7C_12 / OUT=TEMP;
+%FREQOUT(TEMP,Q7C_12);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7C_13 / OUT=TEMP;
+%FREQOUT(TEMP,Q7C_13);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7C_14 / OUT=TEMP;
+%FREQOUT(TEMP,Q7C_14);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7C_15 / OUT=TEMP;
+%FREQOUT(TEMP,Q7C_15);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7C_16 / OUT=TEMP;
+%FREQOUT(TEMP,Q7C_16);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7C_17 / OUT=TEMP;
+%FREQOUT(TEMP,Q7C_17);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7C_18 / OUT=TEMP;
+%FREQOUT(TEMP,Q7C_18);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7C_19 / OUT=TEMP;
+%FREQOUT(TEMP,Q7C_19);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7C_20 / OUT=TEMP;
+%FREQOUT(TEMP,Q7C_20);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7C_21 / OUT=TEMP;
+%FREQOUT(TEMP,Q7C_21);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7C_22 / OUT=TEMP;
+%FREQOUT(TEMP,Q7C_22);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7C_23 / OUT=TEMP;
+%FREQOUT(TEMP,Q7C_23);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7C_24 / OUT=TEMP;
+%FREQOUT(TEMP,Q7C_24);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7C_25 / OUT=TEMP;
+%FREQOUT(TEMP,Q7C_25);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7C_26 / OUT=TEMP;
+%FREQOUT(TEMP,Q7C_26);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7C_27 / OUT=TEMP;
+%FREQOUT(TEMP,Q7C_27);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q7C_28 / OUT=TEMP;
+%FREQOUT(TEMP,Q7C_28);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-102-32')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q8A_1 / OUT=TEMP;
+%FREQOUT(TEMP,Q8A_1);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q8A_2 / OUT=TEMP;
+%FREQOUT(TEMP,Q8A_2);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q8A_3 / OUT=TEMP;
+%FREQOUT(TEMP,Q8A_3);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q8A_4 / OUT=TEMP;
+%FREQOUT(TEMP,Q8A_4);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q8A_5 / OUT=TEMP;
+%FREQOUT(TEMP,Q8A_5);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q8A_6 / OUT=TEMP;
+%FREQOUT(TEMP,Q8A_6);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q8A_7 / OUT=TEMP;
+%FREQOUT(TEMP,Q8A_7);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q8A_8 / OUT=TEMP;
+%FREQOUT(TEMP,Q8A_8);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q8A_9 / OUT=TEMP;
+%FREQOUT(TEMP,Q8A_9);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q8A_10 / OUT=TEMP;
+%FREQOUT(TEMP,Q8A_10);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q8A_11 / OUT=TEMP;
+%FREQOUT(TEMP,Q8A_11);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-102-39')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q8B_1 / OUT=TEMP;
+%FREQOUT(TEMP,Q8B_1);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q8B_2 / OUT=TEMP;
+%FREQOUT(TEMP,Q8B_2);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q8B_3 / OUT=TEMP;
+%FREQOUT(TEMP,Q8B_3);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q8B_4 / OUT=TEMP;
+%FREQOUT(TEMP,Q8B_4);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q8B_5 / OUT=TEMP;
+%FREQOUT(TEMP,Q8B_5);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q8B_6 / OUT=TEMP;
+%FREQOUT(TEMP,Q8B_6);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q8B_7 / OUT=TEMP;
+%FREQOUT(TEMP,Q8B_7);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q8B_8 / OUT=TEMP;
+%FREQOUT(TEMP,Q8B_8);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q8B_9 / OUT=TEMP;
+%FREQOUT(TEMP,Q8B_9);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q8B_10 / OUT=TEMP;
+%FREQOUT(TEMP,Q8B_10);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-102-46-1')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q9A_1 / OUT=TEMP;
+%FREQOUT(TEMP,Q9A_1);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q9A_2 / OUT=TEMP;
+%FREQOUT(TEMP,Q9A_2);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q9A_3 / OUT=TEMP;
+%FREQOUT(TEMP,Q9A_3);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q9A_4 / OUT=TEMP;
+%FREQOUT(TEMP,Q9A_4);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q9A_5 / OUT=TEMP;
+%FREQOUT(TEMP,Q9A_5);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q9A_6 / OUT=TEMP;
+%FREQOUT(TEMP,Q9A_6);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q9A_7 / OUT=TEMP;
+%FREQOUT(TEMP,Q9A_7);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q9A_8 / OUT=TEMP;
+%FREQOUT(TEMP,Q9A_8);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q9A_9 / OUT=TEMP;
+%FREQOUT(TEMP,Q9A_9);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-102-46-2')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q9B_1 / OUT=TEMP;
+%FREQOUT(TEMP,Q9B_1);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q9B_2 / OUT=TEMP;
+%FREQOUT(TEMP,Q9B_2);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q9B_3 / OUT=TEMP;
+%FREQOUT(TEMP,Q9B_3);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q9B_4 / OUT=TEMP;
+%FREQOUT(TEMP,Q9B_4);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q9B_5 / OUT=TEMP;
+%FREQOUT(TEMP,Q9B_5);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q9B_6 / OUT=TEMP;
+%FREQOUT(TEMP,Q9B_6);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q9B_7 / OUT=TEMP;
+%FREQOUT(TEMP,Q9B_7);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q9B_8 / OUT=TEMP;
+%FREQOUT(TEMP,Q9B_8);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q9B_9 / OUT=TEMP;
+%FREQOUT(TEMP,Q9B_9);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-102-53')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q10_1 / OUT=TEMP;
+%FREQOUT(TEMP,Q10_1);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q10_2 / OUT=TEMP;
+%FREQOUT(TEMP,Q10_2);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q10_3 / OUT=TEMP;
+%FREQOUT(TEMP,Q10_3);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q10_4 / OUT=TEMP;
+%FREQOUT(TEMP,Q10_4);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-102-60')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES Q11A / OUT=TEMP;
+%FREQOUT(TEMP,Q11A);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-102-74')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1A / OUT=TEMP;
+%FREQOUT(TEMP,P1A);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-102-81')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1B_1 / OUT=TEMP;
+%FREQOUT(TEMP,P1B_1);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1B_2 / OUT=TEMP;
+%FREQOUT(TEMP,P1B_2);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1B_3 / OUT=TEMP;
+%FREQOUT(TEMP,P1B_3);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1B_4 / OUT=TEMP;
+%FREQOUT(TEMP,P1B_4);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1B_5 / OUT=TEMP;
+%FREQOUT(TEMP,P1B_5);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1B_6 / OUT=TEMP;
+%FREQOUT(TEMP,P1B_6);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1B_7 / OUT=TEMP;
+%FREQOUT(TEMP,P1B_7);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1B_8 / OUT=TEMP;
+%FREQOUT(TEMP,P1B_8);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1B_9 / OUT=TEMP;
+%FREQOUT(TEMP,P1B_9);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1B_10 / OUT=TEMP;
+%FREQOUT(TEMP,P1B_10);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1B_11 / OUT=TEMP;
+%FREQOUT(TEMP,P1B_11);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1B_12 / OUT=TEMP;
+%FREQOUT(TEMP,P1B_12);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1B_13 / OUT=TEMP;
+%FREQOUT(TEMP,P1B_13);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1B_14 / OUT=TEMP;
+%FREQOUT(TEMP,P1B_14);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1B_15 / OUT=TEMP;
+%FREQOUT(TEMP,P1B_15);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1B_16 / OUT=TEMP;
+%FREQOUT(TEMP,P1B_16);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1B_17 / OUT=TEMP;
+%FREQOUT(TEMP,P1B_17);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1B_18 / OUT=TEMP;
+%FREQOUT(TEMP,P1B_18);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1B_19 / OUT=TEMP;
+%FREQOUT(TEMP,P1B_19);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1B_20 / OUT=TEMP;
+%FREQOUT(TEMP,P1B_20);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1B_21 / OUT=TEMP;
+%FREQOUT(TEMP,P1B_21);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1B_22 / OUT=TEMP;
+%FREQOUT(TEMP,P1B_22);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-102-95')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1D / OUT=TEMP;
+%FREQOUT(TEMP,P1D);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-103-2')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1E / OUT=TEMP;
+%FREQOUT(TEMP,P1E);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-103-9')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1F / OUT=TEMP;
+%FREQOUT(TEMP,P1F);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-103-16')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1G / OUT=TEMP;
+%FREQOUT(TEMP,P1G);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-103-23')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1H / OUT=TEMP;
+%FREQOUT(TEMP,P1H);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-103-30')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1I_1 / OUT=TEMP;
+%FREQOUT(TEMP,P1I_1);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1I_2 / OUT=TEMP;
+%FREQOUT(TEMP,P1I_2);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1I_3 / OUT=TEMP;
+%FREQOUT(TEMP,P1I_3);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1I_4 / OUT=TEMP;
+%FREQOUT(TEMP,P1I_4);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1I_5 / OUT=TEMP;
+%FREQOUT(TEMP,P1I_5);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1I_6 / OUT=TEMP;
+%FREQOUT(TEMP,P1I_6);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-103-37')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1J / OUT=TEMP;
+%FREQOUT(TEMP,P1J);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-103-44')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1K / OUT=TEMP;
+%FREQOUT(TEMP,P1K);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-103-51')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1L / OUT=TEMP;
+%FREQOUT(TEMP,P1L);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-103-58')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P1M / OUT=TEMP;
+%FREQOUT(TEMP,P1M);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-103-72')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2A / OUT=TEMP;
+%FREQOUT(TEMP,P2A);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-103-79')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2B / OUT=TEMP;
+%FREQOUT(TEMP,P2B);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-103-86')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2C / OUT=TEMP;
+%FREQOUT(TEMP,P2C);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-103-93')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2D / OUT=TEMP;
+%FREQOUT(TEMP,P2D);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-104-0')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2E / OUT=TEMP;
+%FREQOUT(TEMP,P2E);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-104-7')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2F / OUT=TEMP;
+%FREQOUT(TEMP,P2F);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-104-14')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2G / OUT=TEMP;
+%FREQOUT(TEMP,P2G);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-104-21')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2H / OUT=TEMP;
+%FREQOUT(TEMP,P2H);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-104-35')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2J / OUT=TEMP;
+%FREQOUT(TEMP,P2J);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-104-49')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2L_1 / OUT=TEMP;
+%FREQOUT(TEMP,P2L_1);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2L_2 / OUT=TEMP;
+%FREQOUT(TEMP,P2L_2);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2L_3 / OUT=TEMP;
+%FREQOUT(TEMP,P2L_3);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2L_4 / OUT=TEMP;
+%FREQOUT(TEMP,P2L_4);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2L_5 / OUT=TEMP;
+%FREQOUT(TEMP,P2L_5);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2L_6 / OUT=TEMP;
+%FREQOUT(TEMP,P2L_6);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2L_7 / OUT=TEMP;
+%FREQOUT(TEMP,P2L_7);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2L_8 / OUT=TEMP;
+%FREQOUT(TEMP,P2L_8);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2L_9 / OUT=TEMP;
+%FREQOUT(TEMP,P2L_9);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2L_10 / OUT=TEMP;
+%FREQOUT(TEMP,P2L_10);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2L_11 / OUT=TEMP;
+%FREQOUT(TEMP,P2L_11);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2L_12 / OUT=TEMP;
+%FREQOUT(TEMP,P2L_12);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-104-56')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2M_1 / OUT=TEMP;
+%FREQOUT(TEMP,P2M_1);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2M_2 / OUT=TEMP;
+%FREQOUT(TEMP,P2M_2);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2M_3 / OUT=TEMP;
+%FREQOUT(TEMP,P2M_3);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2M_4 / OUT=TEMP;
+%FREQOUT(TEMP,P2M_4);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2M_5 / OUT=TEMP;
+%FREQOUT(TEMP,P2M_5);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2M_6 / OUT=TEMP;
+%FREQOUT(TEMP,P2M_6);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2M_7 / OUT=TEMP;
+%FREQOUT(TEMP,P2M_7);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2M_8 / OUT=TEMP;
+%FREQOUT(TEMP,P2M_8);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2M_9 / OUT=TEMP;
+%FREQOUT(TEMP,P2M_9);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2M_10 / OUT=TEMP;
+%FREQOUT(TEMP,P2M_10);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2M_11 / OUT=TEMP;
+%FREQOUT(TEMP,P2M_11);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2M_12 / OUT=TEMP;
+%FREQOUT(TEMP,P2M_12);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2M_13 / OUT=TEMP;
+%FREQOUT(TEMP,P2M_13);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-104-63')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2N / OUT=TEMP;
+%FREQOUT(TEMP,P2N);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-104-70')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P2O / OUT=TEMP;
+%FREQOUT(TEMP,P2O);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-104-84')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P3A / OUT=TEMP;
+%FREQOUT(TEMP,P3A);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-104-91')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P3B_1 / OUT=TEMP;
+%FREQOUT(TEMP,P3B_1);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P3B_2 / OUT=TEMP;
+%FREQOUT(TEMP,P3B_2);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P3B_3 / OUT=TEMP;
+%FREQOUT(TEMP,P3B_3);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P3B_4 / OUT=TEMP;
+%FREQOUT(TEMP,P3B_4);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P3B_5 / OUT=TEMP;
+%FREQOUT(TEMP,P3B_5);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P3B_6 / OUT=TEMP;
+%FREQOUT(TEMP,P3B_6);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P3B_7 / OUT=TEMP;
+%FREQOUT(TEMP,P3B_7);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P3B_8 / OUT=TEMP;
+%FREQOUT(TEMP,P3B_8);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P3B_9 / OUT=TEMP;
+%FREQOUT(TEMP,P3B_9);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P3B_10 / OUT=TEMP;
+%FREQOUT(TEMP,P3B_10);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P3B_11 / OUT=TEMP;
+%FREQOUT(TEMP,P3B_11);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P3B_12 / OUT=TEMP;
+%FREQOUT(TEMP,P3B_12);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P3B_13 / OUT=TEMP;
+%FREQOUT(TEMP,P3B_13);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P3B_14 / OUT=TEMP;
+%FREQOUT(TEMP,P3B_14);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P3B_15 / OUT=TEMP;
+%FREQOUT(TEMP,P3B_15);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P3B_16 / OUT=TEMP;
+%FREQOUT(TEMP,P3B_16);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P3B_17 / OUT=TEMP;
+%FREQOUT(TEMP,P3B_17);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-104-98')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P4A / OUT=TEMP;
+%FREQOUT(TEMP,P4A);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-105-5')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P4B / OUT=TEMP;
+%FREQOUT(TEMP,P4B);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-105-12')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P4C / OUT=TEMP;
+%FREQOUT(TEMP,P4C);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-105-19')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P4D / OUT=TEMP;
+%FREQOUT(TEMP,P4D);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-105-26')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P5A / OUT=TEMP;
+%FREQOUT(TEMP,P5A);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-105-33')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P5B / OUT=TEMP;
+%FREQOUT(TEMP,P5B);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-105-40')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P6A / OUT=TEMP;
+%FREQOUT(TEMP,P6A);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-105-47')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P6B / OUT=TEMP;
+%FREQOUT(TEMP,P6B);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-105-54')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P7A / OUT=TEMP;
+%FREQOUT(TEMP,P7A);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-105-61')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P7B / OUT=TEMP;
+%FREQOUT(TEMP,P7B);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-105-68')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P8A / OUT=TEMP;
+%FREQOUT(TEMP,P8A);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-105-75')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P8B / OUT=TEMP;
+%FREQOUT(TEMP,P8B);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-105-82')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P9A / OUT=TEMP;
+%FREQOUT(TEMP,P9A);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-105-89')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P9B / OUT=TEMP;
+%FREQOUT(TEMP,P9B);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-105-96')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P10A / OUT=TEMP;
+%FREQOUT(TEMP,P10A);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-106-3')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P10B / OUT=TEMP;
+%FREQOUT(TEMP,P10B);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-106-10')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P10C_1 / OUT=TEMP;
+%FREQOUT(TEMP,P10C_1);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P10C_2 / OUT=TEMP;
+%FREQOUT(TEMP,P10C_2);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P10C_3 / OUT=TEMP;
+%FREQOUT(TEMP,P10C_3);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-106-17')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES P10D / OUT=TEMP;
+%FREQOUT(TEMP,P10D);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-106-24')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F1 / OUT=TEMP;
+%FREQOUT(TEMP,F1);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-106-31')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F2 / OUT=TEMP;
+%FREQOUT(TEMP,F2);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-106-45')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F4 / OUT=TEMP;
+%FREQOUT(TEMP,F4);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-106-52')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F5 / OUT=TEMP;
+%FREQOUT(TEMP,F5);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-106-59')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F6 / OUT=TEMP;
+%FREQOUT(TEMP,F6);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-106-66')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F7_1 / OUT=TEMP;
+%FREQOUT(TEMP,F7_1);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F7_2 / OUT=TEMP;
+%FREQOUT(TEMP,F7_2);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F7_3 / OUT=TEMP;
+%FREQOUT(TEMP,F7_3);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F7_4 / OUT=TEMP;
+%FREQOUT(TEMP,F7_4);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F7_5 / OUT=TEMP;
+%FREQOUT(TEMP,F7_5);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F7_6 / OUT=TEMP;
+%FREQOUT(TEMP,F7_6);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F7_7 / OUT=TEMP;
+%FREQOUT(TEMP,F7_7);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-106-73')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F8 / OUT=TEMP;
+%FREQOUT(TEMP,F8);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-106-80')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F9_1 / OUT=TEMP;
+%FREQOUT(TEMP,F9_1);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F9_2 / OUT=TEMP;
+%FREQOUT(TEMP,F9_2);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F9_3 / OUT=TEMP;
+%FREQOUT(TEMP,F9_3);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F9_4 / OUT=TEMP;
+%FREQOUT(TEMP,F9_4);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F9_5 / OUT=TEMP;
+%FREQOUT(TEMP,F9_5);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F9_6 / OUT=TEMP;
+%FREQOUT(TEMP,F9_6);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F9_7 / OUT=TEMP;
+%FREQOUT(TEMP,F9_7);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F9_8 / OUT=TEMP;
+%FREQOUT(TEMP,F9_8);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F9_9 / OUT=TEMP;
+%FREQOUT(TEMP,F9_9);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F9_10 / OUT=TEMP;
+%FREQOUT(TEMP,F9_10);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F9_11 / OUT=TEMP;
+%FREQOUT(TEMP,F9_11);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F9_12 / OUT=TEMP;
+%FREQOUT(TEMP,F9_12);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F9_13 / OUT=TEMP;
+%FREQOUT(TEMP,F9_13);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F9_14 / OUT=TEMP;
+%FREQOUT(TEMP,F9_14);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-106-87')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F10 / OUT=TEMP;
+%FREQOUT(TEMP,F10);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-106-94')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F11 / OUT=TEMP;
+%FREQOUT(TEMP,F11);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-107-1')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F12A / OUT=TEMP;
+%FREQOUT(TEMP,F12A);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-107-8')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F12B / OUT=TEMP;
+%FREQOUT(TEMP,F12B);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-107-15')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F13 / OUT=TEMP;
+%FREQOUT(TEMP,F13);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-107-22')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F14 / OUT=TEMP;
+%FREQOUT(TEMP,F14);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-107-29')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F15 / OUT=TEMP;
+%FREQOUT(TEMP,F15);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-107-36')
+PUT @1 'ITEMS;';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F16_1 / OUT=TEMP;
+%FREQOUT2(TEMP,F16_1);
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F16_2 / OUT=TEMP;
+%FREQOUT2(TEMP,F16_2);
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F16_3 / OUT=TEMP;
+%FREQOUT2(TEMP,F16_3);
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F16_4 / OUT=TEMP;
+%FREQOUT2(TEMP,F16_4);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';  
+%PUTMERGE('H-2345-107-43')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F17 / OUT=TEMP;
+%FREQOUT(TEMP,F17);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';'; 
+%PUTMERGE('H-2345-107-57')
+PUT @1 'ITEMS;';
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F19_1 / OUT=TEMP;
+%FREQOUT2(TEMP,F19_1);
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F19_2 / OUT=TEMP;
+%FREQOUT2(TEMP,F19_2);
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F19_3 / OUT=TEMP;
+%FREQOUT2(TEMP,F19_3);
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F19_4 / OUT=TEMP;
+%FREQOUT2(TEMP,F19_4);
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F19_5 / OUT=TEMP;
+%FREQOUT2(TEMP,F19_5);
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F19_6 / OUT=TEMP;
+%FREQOUT2(TEMP,F19_6);
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F19_7 / OUT=TEMP;
+%FREQOUT2(TEMP,F19_7);
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F19_8 / OUT=TEMP;
+%FREQOUT2(TEMP,F19_8);
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F19_9 / OUT=TEMP;
+%FREQOUT2(TEMP,F19_9);
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F19_10 / OUT=TEMP;
+%FREQOUT2(TEMP,F19_10);
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F19_11 / OUT=TEMP;
+%FREQOUT2(TEMP,F19_11);
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F19_12 / OUT=TEMP;
+%FREQOUT2(TEMP,F19_12);
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F19_13 / OUT=TEMP;
+%FREQOUT2(TEMP,F19_13);
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F19_14 / OUT=TEMP;
+%FREQOUT2(TEMP,F19_14);
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F19_15 / OUT=TEMP;
+%FREQOUT2(TEMP,F19_15);
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F19_16 / OUT=TEMP;
+%FREQOUT2(TEMP,F19_16);
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F19_17 / OUT=TEMP;
+%FREQOUT2(TEMP,F19_17);
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F19_18 / OUT=TEMP;
+%FREQOUT2(TEMP,F19_18);
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F19_19 / OUT=TEMP;
+%FREQOUT2(TEMP,F19_19);
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F19_20 / OUT=TEMP;
+%FREQOUT2(TEMP,F19_20);
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F19_21 / OUT=TEMP;
+%FREQOUT2(TEMP,F19_21);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-107-64')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F20 / OUT=TEMP;
+%FREQOUT(TEMP,F20);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-107-71')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F21 / OUT=TEMP;
+%FREQOUT(TEMP,F21);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-107-78')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F22 / OUT=TEMP;
+%FREQOUT(TEMP,F22);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';';
+%PUTMERGE('H-2345-107-50')
+PROC FREQ DATA=SAS.HDATA;
+  TABLES F18 / OUT=TEMP;
+%FREQOUT(TEMP,F18);
+IF LAST THEN PUT 'NUMCASES = ' N ';';
+IF LAST THEN PUT ';'; */
