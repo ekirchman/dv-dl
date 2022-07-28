@@ -6,6 +6,7 @@ import re
 import sys #sys.exit() and calling wget
 import zipfile
 import argparse
+import configparser
 
 # default values 
 base = 'https://dataverse.unc.edu'
@@ -13,17 +14,17 @@ search_term = 'Harris+1973+Nuclear+Power+Survey+study+no+2345'
 unzip = True
 clobber = False
 
-# Read in API Key
-try:
-    api_file = open(".api_key","r")
-except IOError:
-    print("Cannot open API key file (.api_key)")
-    sys.exit(1)
-
-API_key = api_file.readlines()
-api_file.close()
-API_key_html = "&key=" + API_key[0]
-
+# Read in API Key per dataverse instance
+def read_conf(instance_name):
+    #instance is string of dataverse url base
+    config = configparser.ConfigParser()
+    config.read('dv-dl.conf')
+    ##print(config['instance_name']['API'])
+    API_key = config[instance_name]['API']
+    API_key_html = "&key=" + API_key
+    #print(API_key_html)
+    return API_key_html
+    
 # create the dir if it does not exist
 def create_dir_if_not_exist(path):
     if not os.path.exists('path'):
@@ -48,6 +49,8 @@ def download(dir_name, global_id):
     create_dir_if_not_exist(dl_path)
     file_path = dl_path + "/dataverse_files.zip"
 
+    #TODO: Check if file needs API and if so, give propper error
+    
     #check if the files is already downloaded
     if os.path.exists(file_path):
         print("File already exists")
@@ -64,14 +67,22 @@ def download(dir_name, global_id):
                 zip_ref.extractall(extract_path)
 
 
-def search_and_bulk_dl():
+def search_and_bulk_dl(API_key_html=""):
     init_dir()
     rows = 10
     start = 0
     page = 1
-    condition = True # emulate do-while
+
+    #check if API key is present
+    if len(API_key_html) == 0:
+        print("ERROR: Missing API Key")
+        sys.exit()
+        
+    condition = True # emulate do-while    
     while (condition):
         url = base + '/api/search?q=' + search_term + "&type=dataset&type=file&show_entity_ids=true" + API_key_html + "&start=" + str(start)
+        print(url)
+        sys.exit()
         response = requests.get(url)
         data = response.json()
         if data['status'] != 'OK':
@@ -94,27 +105,44 @@ def parse_URL_get_DOI():
     sys.exit()
     pass
 
-def subcmd_search(args):
+def subcmd_search(args, ):
     #print("subcmd_search")
     search_and_bulk_dl()
 
 def subcmd_download(args):
     #print("subcmd_download")
     path = os.getcwd()
+    if args.instance is None:
+        print("no instance provided")
+        print("--instance")
+        sys.exit()
+        
     if args.doi:
         download(path, args.doi)
     elif args.url:
         DOI = parse_URL_get_DOI()
         download(path, DOI)
-
+        
 def main():
+
+    #define variables
+    API_key_html = ""
+
+    #read conf if present
+    if os.path.exists('dv-dl.conf'):
+        API_key_html = read_conf('dataverse.unc.edu')
+    else:
+        print("WARN: no conf file found")
+
+    print(API_key_html)
     
     # create the top-level parser
     parser = argparse.ArgumentParser()
     parser = argparse.ArgumentParser(description='A download tool for Dataverse instances')
     subparsers = parser.add_subparsers(help='sub-command help')
 
-    # create the parser for the "search" command
+    
+    # Parser for download subcommand
     parser_search = subparsers.add_parser('search', help='Search and download datasets. Defaults to generic query')
 
     # Search params
@@ -128,15 +156,20 @@ def main():
     parser_search.add_argument('--per_page', type=int, default=10, help='The number of results to return per request. The default is 10, the max is 1000')
     parser_search.add_argument('--start', type=int, help='A cursor for paging through search results')
     parser_search.add_argument('--fq', help='Filter query')
-
+    parser_search.add_argument('--instance', help='Dataverse instance')
+    
     # Extended search params for dv-dl
     
     parser_search.set_defaults(func=subcmd_search)
     # TODO
     parser_search.add_argument('--print', help='Print dataset details')
+
+
+    # Parser for download subcommand
     
     # create the parser for the "download" command
     parser_download = subparsers.add_parser('download', help='Download individual datasets')
+    parser_download.add_argument('--instance', help='Dataverse instance')
     parser_download.set_defaults(func=subcmd_download)
 
     # Create a group for mutally exclusive options DOI and URL for download subcommand
