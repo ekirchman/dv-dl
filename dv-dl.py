@@ -16,14 +16,19 @@ clobber = False
 
 # Read in API Key per dataverse instance
 def read_conf(instance_name):
-    #instance is string of dataverse url base
-    config = configparser.ConfigParser()
-    config.read('dv-dl.conf')
-    ##print(config['instance_name']['API'])
-    API_key = config[instance_name]['API']
-    API_key_html = "&key=" + API_key
-    #print(API_key_html)
-    return API_key_html
+
+    #read conf if present
+    if os.path.exists('dv-dl.conf'):
+        #instance is string of dataverse url base
+        config = configparser.ConfigParser()
+        config.read('dv-dl.conf')
+        ##print(config['instance_name']['API'])
+        API_key = config[instance_name]['API']
+        API_key_html = "&key=" + API_key
+        #print(API_key_html)
+        return API_key_html
+    else:
+        print("WARN: no conf file found")
     
 # create the dir if it does not exist
 def create_dir_if_not_exist(path):
@@ -41,7 +46,7 @@ def init_dir():
     create_dir_if_not_exist(path)
 
 ##Download to folder
-def download(dir_name, global_id):
+def download(dir_name, global_id, API_key_html=""):
     #create the sub dir
     parent_dir = os.getcwd()
     parent_dir = os.path.join(parent_dir, "dataverse_datasets")
@@ -56,7 +61,7 @@ def download(dir_name, global_id):
         print("File already exists")
     else:
         #download the file
-        dl_url = base + '/api/access/dataset/:persistentId?persistentId=' + global_id
+        dl_url = base + '/api/access/dataset/:persistentId?persistentId=' + global_id + API_key_html
         #print(dl_url)
         #print(dl_path)
         os.system("wget -nc --content-disposition -P '{}' '{}'".format(dl_path, dl_url))
@@ -105,36 +110,30 @@ def parse_URL_get_DOI():
     sys.exit()
     pass
 
-def subcmd_search(args, ):
+def subcmd_search(args):
     #print("subcmd_search")
     search_and_bulk_dl()
 
 def subcmd_download(args):
     #print("subcmd_download")
+
+    API_key_html = read_conf('dataverse.unc.edu')
+    
     path = os.getcwd()
     if args.instance is None:
         print("no instance provided")
-        print("--instance")
+        print("usage: --instance INSTANCE") #This should really print the usage statement
+        parser.print_usage()
         sys.exit()
         
     if args.doi:
-        download(path, args.doi)
+        download(path, args.doi, API_key_html)
     elif args.url:
         DOI = parse_URL_get_DOI()
         download(path, DOI)
         
 def main():
 
-    #define variables
-    API_key_html = ""
-
-    #read conf if present
-    if os.path.exists('dv-dl.conf'):
-        API_key_html = read_conf('dataverse.unc.edu')
-    else:
-        print("WARN: no conf file found")
-
-    print(API_key_html)
     
     # create the top-level parser
     parser = argparse.ArgumentParser()
@@ -156,7 +155,7 @@ def main():
     parser_search.add_argument('--per_page', type=int, default=10, help='The number of results to return per request. The default is 10, the max is 1000')
     parser_search.add_argument('--start', type=int, help='A cursor for paging through search results')
     parser_search.add_argument('--fq', help='Filter query')
-    parser_search.add_argument('--instance', help='Dataverse instance')
+    parser_search.add_argument('--instance', help='Dataverse instance', required=True)
     
     # Extended search params for dv-dl
     
@@ -169,7 +168,7 @@ def main():
     
     # create the parser for the "download" command
     parser_download = subparsers.add_parser('download', help='Download individual datasets')
-    parser_download.add_argument('--instance', help='Dataverse instance')
+    parser_download.add_argument('--instance', help='Dataverse instance', required=True)
     parser_download.set_defaults(func=subcmd_download)
 
     # Create a group for mutally exclusive options DOI and URL for download subcommand
