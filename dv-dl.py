@@ -9,8 +9,7 @@ import argparse
 import configparser
 
 # default values 
-search_term = 'Harris+1973+Nuclear+Power+Survey+study+no+2345'
-unzip = True
+unzip = False
 clobber = False
 
 # Read in API Key per dataverse instance
@@ -40,7 +39,13 @@ def read_conf(instance_name):
         return API_key_html
     else:
         print("WARN: no conf file found")
-    
+
+# Basic URL encoding of string
+def format_query(query):
+    # This might be replaced with Slugify later if this proves to be too simplistic
+    query = query.replace(' ','+')
+    return query 
+
 # create the dir if it does not exist
 def create_dir_if_not_exist(path):
     if not os.path.exists('path'):
@@ -83,7 +88,7 @@ def download(dir_name, global_id, API_key_html=""):
                 zip_ref.extractall(extract_path)
 
 
-def search_and_dl(instance, API_key_html=''):
+def search_and_dl(instance, search_term, API_key_html=''):
     init_dir()
     rows = 10
     start = 0
@@ -133,7 +138,8 @@ def subcmd_search(args):
         # Read API Key if present in config
         API_key_html = read_conf(args.instance)
         instance = args.instance
-        search_and_dl(instance = instance, API_key_html = API_key_html)
+        search_term = format_query(args.search_term)
+        search_and_dl(instance = instance, search_term = search_term, API_key_html = API_key_html)
 
 def subcmd_download(args):
     #print("subcmd_download")
@@ -165,7 +171,8 @@ def main():
     
     # Parser for download subcommand
     parser_search = subparsers.add_parser('search', help='Search and download datasets. Defaults to generic query')
-
+    parser_search.add_argument('search_term', help='search query')
+    
     # Search params
     # https://guides.dataverse.org/en/latest/api/search.html#id1
     parser_search.add_argument('--title', help='Filter by title')
