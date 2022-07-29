@@ -22,7 +22,14 @@ def read_conf(instance_name):
         #instance is string of dataverse url base
         config = configparser.ConfigParser()
         config.read('dv-dl.conf')
-        ##print(config['instance_name']['API'])
+        ##print(config[instance_name]['API'])
+
+        try:
+            config.get(instance_name, 'API')
+        except:
+            print("'{}' not found in config file".format(instance_name))
+            sys.exit(1)
+            
         API_key = config[instance_name]['API']
         API_key_html = "&key=" + API_key
         #print(API_key_html)
@@ -72,7 +79,7 @@ def download(dir_name, global_id, API_key_html=""):
                 zip_ref.extractall(extract_path)
 
 
-def search_and_dl(API_key_html=""):
+def search_and_dl(global_id, API_key_html=""):
     init_dir()
     rows = 10
     start = 0
@@ -107,6 +114,7 @@ def search_and_dl(API_key_html=""):
 
 def parse_URL_get_DOI():
     # TODO
+    print("parse_URL_get_DOI not implemented yet")
     sys.exit()
     pass
 
@@ -118,7 +126,9 @@ def subcmd_search(args):
         parser.print_usage()
         sys.exit()
     else:
-        search_and_dl()
+        # Read API Key if present in config
+        API_key_html = read_conf(args.instance)
+        search_and_dl(args.doi, API_key_html)
 
 def subcmd_download(args):
     #print("subcmd_download")
@@ -131,7 +141,6 @@ def subcmd_download(args):
     else:
         
         # Read API Key if present in config
-        #print(type(args.instance))
         API_key_html = read_conf(args.instance)
     
         if args.doi:
