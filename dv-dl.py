@@ -72,7 +72,7 @@ def download(dir_name, global_id, API_key_html=""):
                 zip_ref.extractall(extract_path)
 
 
-def search_and_bulk_dl(API_key_html=""):
+def search_and_dl(API_key_html=""):
     init_dir()
     rows = 10
     start = 0
@@ -112,25 +112,33 @@ def parse_URL_get_DOI():
 
 def subcmd_search(args):
     #print("subcmd_search")
-    search_and_bulk_dl()
-
-def subcmd_download(args):
-    #print("subcmd_download")
-
-    API_key_html = read_conf('dataverse.unc.edu')
-    
-    path = os.getcwd()
     if args.instance is None:
         print("no instance provided")
         print("usage: --instance INSTANCE") #This should really print the usage statement
         parser.print_usage()
         sys.exit()
+    else:
+        search_and_dl()
+
+def subcmd_download(args):
+    #print("subcmd_download")
+
+    path = os.getcwd()
+    if args.instance is None:
+        print("no instance provided")
+        print("usage: --instance INSTANCE") #This should really print the usage statement
+        sys.exit()
+    else:
         
-    if args.doi:
-        download(path, args.doi, API_key_html)
-    elif args.url:
-        DOI = parse_URL_get_DOI()
-        download(path, DOI)
+        # Read API Key if present in config
+        #print(type(args.instance))
+        API_key_html = read_conf(args.instance)
+    
+        if args.doi:
+            download(path, args.doi, API_key_html)
+        elif args.url:
+            DOI = parse_URL_get_DOI()
+            download(path, DOI)
         
 def main():
 
