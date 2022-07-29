@@ -9,7 +9,6 @@ import argparse
 import configparser
 
 # default values 
-base = 'https://dataverse.unc.edu'
 search_term = 'Harris+1973+Nuclear+Power+Survey+study+no+2345'
 unzip = True
 clobber = False
@@ -22,17 +21,22 @@ def read_conf(instance_name):
         #instance is string of dataverse url base
         config = configparser.ConfigParser()
         config.read('dv-dl.conf')
-        ##print(config[instance_name]['API'])
-
-        try:
-            config.get(instance_name, 'API')
-        except:
-            print("'{}' not found in config file".format(instance_name))
+        
+        # Check if instance is found in config
+        if instance_name in config:
+            
+            #Check if API is found for instance
+            try:
+                config.get(instance_name, 'API')
+            except:
+                print("ERROR: API for '{}' not found in config file".format(instance_name))
+                sys.exit(1)
+        else:
+            print("ERROR: '{}' not found in config file".format(instance_name))
             sys.exit(1)
             
         API_key = config[instance_name]['API']
         API_key_html = "&key=" + API_key
-        #print(API_key_html)
         return API_key_html
     else:
         print("WARN: no conf file found")
@@ -79,12 +83,14 @@ def download(dir_name, global_id, API_key_html=""):
                 zip_ref.extractall(extract_path)
 
 
-def search_and_dl(global_id, API_key_html=""):
+def search_and_dl(instance, API_key_html=''):
     init_dir()
     rows = 10
     start = 0
     page = 1
 
+    base = "https://" + instance
+    
     #check if API key is present
     if len(API_key_html) == 0:
         print("ERROR: Missing API Key")
@@ -93,8 +99,6 @@ def search_and_dl(global_id, API_key_html=""):
     condition = True # emulate do-while    
     while (condition):
         url = base + '/api/search?q=' + search_term + "&type=dataset&type=file&show_entity_ids=true" + API_key_html + "&start=" + str(start)
-        print(url)
-        sys.exit()
         response = requests.get(url)
         data = response.json()
         if data['status'] != 'OK':
@@ -128,7 +132,8 @@ def subcmd_search(args):
     else:
         # Read API Key if present in config
         API_key_html = read_conf(args.instance)
-        search_and_dl(args.doi, API_key_html)
+        instance = args.instance
+        search_and_dl(instance = instance, API_key_html = API_key_html)
 
 def subcmd_download(args):
     #print("subcmd_download")
