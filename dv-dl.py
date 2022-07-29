@@ -52,8 +52,7 @@ def create_dir_if_not_exist(path):
         try:
             os.mkdir(path)
         except OSError as error:
-            #print(error)
-            pass
+            sys.exit(1)
 
 # Initalize parent directory
 def init_dir():
@@ -142,7 +141,6 @@ def subcmd_search(args):
         search_and_dl(instance = instance, search_term = search_term, API_key_html = API_key_html)
 
 def subcmd_download(args):
-    #print("subcmd_download")
 
     path = os.getcwd()
     if args.instance is None:
