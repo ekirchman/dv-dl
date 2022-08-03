@@ -19,7 +19,8 @@ class dvinstance:
         self.api = api
 
 # Read in API Key per dataverse instance
-def read_conf(instance_name = ""):
+# API_req specifies if an API is required to be in the config or not
+def read_conf(instance_name = "", API_req = True):
 
     #TODO check all options and make sure a config file is not required
     #read conf if present
@@ -31,7 +32,12 @@ def read_conf(instance_name = ""):
 
         # if instance is not specified, default to the first option
         if(instance_name is None):
-            instance_name = config.sections()[0]
+            try:
+                instance_name = config.sections()[0]
+                if debug:
+                    print("Defaulting to use instance {}".format(instance_name))
+            except:
+                print("ERROR: No instances found in section headers of config file")
             if debug:
                 print(instance_name)
 
@@ -44,6 +50,7 @@ def read_conf(instance_name = ""):
             except:
                 print("ERROR: API for '{}' not found in config file".format(instance_name))
                 sys.exit(1)
+                pass
         else:
             print("ERROR: '{}' not found in config file".format(instance_name))
             sys.exit(1)
@@ -153,7 +160,7 @@ def parse_URL_get_DOI():
 
 def subcmd_search(args):
     # Read API Key if present in config
-    inst1 = read_conf(args.instance)
+    inst1 = read_conf(args.instance, API_req = True)
     API_key_html = "&key=" + inst1.api
     if debug:
         print(API_key_html)
@@ -166,7 +173,7 @@ def subcmd_download(args):
     path = os.getcwd()
         
     # Read API Key if present in config
-    inst1 = read_conf(args.instance)
+    inst1 = read_conf(args.instance, API_req = False)
     API_key_html = "&key=" + inst1.api
     if debug:
         print(API_key_html)
@@ -213,7 +220,7 @@ def main():
     
     # create the parser for the "download" command
     parser_download = subparsers.add_parser('download', help='Download individual datasets')
-    parser_download.add_argument('--instance', help='Dataverse instance', required=True)
+    parser_download.add_argument('--instance', help='Dataverse instance')
     parser_download.set_defaults(func=subcmd_download)
 
     # Create a group for mutally exclusive options DOI and URL for download subcommand
