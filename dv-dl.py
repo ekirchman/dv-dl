@@ -11,11 +11,17 @@ import configparser
 # default values 
 unzip = False
 clobber = False
-debug = False
+debug = True
+
+class dvinstance:
+    def __init__(self, name, api, ):
+        self.name = name
+        self.api = api
 
 # Read in API Key per dataverse instance
-def read_conf(instance_name):
+def read_conf(instance_name = ""):
 
+    #TODO check all options and make sure a config file is not required
     #read conf if present
     if os.path.exists('dv-dl.conf'):
 
@@ -23,10 +29,12 @@ def read_conf(instance_name):
         config = configparser.ConfigParser()
         config.read('dv-dl.conf')
 
-        # read config settings
-        if 'CONFIG' in config:
-            print("found Config!")
-        
+        # if instance is not specified, default to the first option
+        if(instance_name is None):
+            instance_name = config.sections()[0]
+            if debug:
+                print(instance_name)
+
         # Check if instance is found in config
         if instance_name in config:
             
@@ -41,8 +49,12 @@ def read_conf(instance_name):
             sys.exit(1)
             
         API_key = config[instance_name]['API']
-        API_key_html = "&key=" + API_key
-        return API_key_html
+        #API_key_html = "&key=" + API_key
+        inst1 = dvinstance(instance_name, API_key)
+        if debug:
+            print(inst1.name)
+            print(inst1.api)
+        return inst1
     else:
         print("WARN: no conf file found")
 
@@ -140,36 +152,29 @@ def parse_URL_get_DOI():
     pass
 
 def subcmd_search(args):
-    #print("subcmd_search")
-    if args.instance is None:
-        print("no instance provided")
-        print("usage: --instance INSTANCE") #This should really print the usage statement
-        parser.print_usage()
-        sys.exit()
-    else:
-        # Read API Key if present in config
-        API_key_html = read_conf(args.instance)
-        instance = args.instance
-        search_term = format_query(args.search_term)
-        search_and_dl(instance = instance, search_term = search_term, API_key_html = API_key_html)
+    # Read API Key if present in config
+    inst1 = read_conf(args.instance)
+    API_key_html = "&key=" + inst1.api
+    if debug:
+        print(API_key_html)
+    instance = inst1.name
+    search_term = format_query(args.search_term)
+    search_and_dl(instance = instance, search_term = search_term, API_key_html = API_key_html)
 
 def subcmd_download(args):
 
     path = os.getcwd()
-    if args.instance is None:
-        print("no instance provided")
-        print("usage: --instance INSTANCE") #This should really print the usage statement
-        sys.exit()
-    else:
         
-        # Read API Key if present in config
-        API_key_html = read_conf(args.instance)
-    
-        if args.doi:
-            download(path, args.doi, API_key_html)
-        elif args.url:
-            DOI = parse_URL_get_DOI()
-            download(path, DOI)
+    # Read API Key if present in config
+    inst1 = read_conf(args.instance)
+    API_key_html = "&key=" + inst1.api
+    if debug:
+        print(API_key_html)
+    if args.doi:
+        download(path, args.doi, inst1.name, API_key_html)
+    elif args.url:
+        DOI = parse_URL_get_DOI()
+        download(path, DOI)
         
 def main():
 
@@ -195,7 +200,7 @@ def main():
     parser_search.add_argument('--per_page', type=int, default=10, help='The number of results to return per request. The default is 10, the max is 1000')
     parser_search.add_argument('--start', type=int, help='A cursor for paging through search results')
     parser_search.add_argument('--fq', help='Filter query')
-    parser_search.add_argument('--instance', help='Dataverse instance', required=True)
+    parser_search.add_argument('--instance', help='Dataverse instance')
     
     # Extended search params for dv-dl
     
