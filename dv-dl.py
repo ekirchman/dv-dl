@@ -11,15 +11,21 @@ import configparser
 # default values 
 unzip = False
 clobber = False
+debug = False
 
 # Read in API Key per dataverse instance
 def read_conf(instance_name):
 
     #read conf if present
     if os.path.exists('dv-dl.conf'):
+
         #instance is string of dataverse url base
         config = configparser.ConfigParser()
         config.read('dv-dl.conf')
+
+        # read config settings
+        if 'CONFIG' in config:
+            print("found Config!")
         
         # Check if instance is found in config
         if instance_name in config:
@@ -52,7 +58,8 @@ def create_dir_if_not_exist(path):
         try:
             os.mkdir(path)
         except OSError as error:
-            sys.exit(1)
+            # dir already exists
+            pass
 
 # Initalize parent directory
 def init_dir():
@@ -61,7 +68,9 @@ def init_dir():
     create_dir_if_not_exist(path)
 
 ##Download to folder
-def download(dir_name, global_id, API_key_html=""):
+def download(dir_name, global_id, base, API_key_html=""):
+    if debug:
+        print("Downloading...")
     #create the sub dir
     parent_dir = os.getcwd()
     parent_dir = os.path.join(parent_dir, "dataverse_datasets")
@@ -77,7 +86,8 @@ def download(dir_name, global_id, API_key_html=""):
     else:
         #download the file
         dl_url = base + '/api/access/dataset/:persistentId?persistentId=' + global_id + API_key_html
-        #print(dl_url)
+        if debug:
+            print(dl_url)
         #print(dl_path)
         os.system("wget -nc --content-disposition -P '{}' '{}'".format(dl_path, dl_url))
         #print("wget --content-disposition -P '{}' '{}'".format(dl_path, dl_url))
@@ -88,6 +98,9 @@ def download(dir_name, global_id, API_key_html=""):
 
 
 def search_and_dl(instance, search_term, API_key_html=''):
+    if debug:
+        print("Searching {} for '{}'".format(instance, search_term))
+
     init_dir()
     rows = 10
     start = 0
@@ -113,7 +126,7 @@ def search_and_dl(instance, search_term, API_key_html=''):
         print("start:", start, " total:", total)
         for i in data['data']['items']:
             print("- ", i['name'], "(" + i['type'] + ")")
-            download(i['name'], i['global_id'])
+            download(i['name'], i['global_id'], instance)
             pass
         start = start + rows
         page += 1
