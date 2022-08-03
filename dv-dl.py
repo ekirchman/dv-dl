@@ -46,16 +46,18 @@ def read_conf(instance_name = "", API_req = True):
             
             #Check if API is found for instance
             try:
-                config.get(instance_name, 'API')
+                API_key = config.get(instance_name, 'API')
             except:
-                print("ERROR: API for '{}' not found in config file".format(instance_name))
-                sys.exit(1)
+                if API_req:
+                    print("ERROR: API for '{}' not found in config file".format(instance_name))
+                    sys.exit(1)
+                API_key = ""
                 pass
         else:
             print("ERROR: '{}' not found in config file".format(instance_name))
             sys.exit(1)
             
-        API_key = config[instance_name]['API']
+        #API_key = config.get(instance_name, 'API')
         #API_key_html = "&key=" + API_key
         inst1 = dvinstance(instance_name, API_key)
         if debug:
@@ -173,7 +175,7 @@ def subcmd_download(args):
     path = os.getcwd()
         
     # Read API Key if present in config
-    inst1 = read_conf(args.instance, API_req = False)
+    inst1 = read_conf(args.instance, API_req = True) # set to true unless can figure out if download needs API
     API_key_html = "&key=" + inst1.api
     if debug:
         print(API_key_html)
