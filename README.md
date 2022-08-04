@@ -9,15 +9,34 @@ A small python download script for downloading datasets from the Dataverse Proje
 
 ## Setting your API Key
 
-Create a `.api_key` file in the same directory as the dv-dl.py and paste in your API key from the site you are searching. More documentation about where to get an API key and how it works can be found [here](https://guides.dataverse.org/en/5.11/api/intro.html#what-is-an-api)
+Create a config file in the same location as dv-dl.py. The formate should look like this:
+
+```
+[demo.dataverse.org]
+API = MY_API_KEY_GOES_HERE
+```
+
 
 ## Usage
 
-`python3 dv-dl.py`
+```
+$ python3 dv-dl.py -h
+usage: dv-dl.py [-h] {search,download} ...
+
+A download tool for Dataverse instances
+
+positional arguments:
+  {search,download}  sub-command help
+    search           Search and download datasets. Defaults to generic query
+    download         Download individual datasets
+
+optional arguments:
+  -h, --help         show this help message and exit
+```
 
 match - search for datasets and download
 doi - download the dataset matching which matches the given DOI
-URL -  download the dataset matching which matches the given URL
+URL -  download the dataset matching which matches the given URL [WIP]
 
 ## Goal Plans Ideas
 
