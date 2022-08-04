@@ -1,6 +1,9 @@
+# for emacs
+*~
+\#*\#
+# other files
 .api_key
 dataverse_datasets/
 dataverse_files.zip
 extract/
 dv-dl.conf
-dv-dl.conf~
