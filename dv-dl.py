@@ -90,6 +90,7 @@ def init_dir():
 
 ##Download to folder
 def download(dir_name, global_id, base, API_key_html=""):
+    req_orig = False # Change this to 'True' when testing original file download functionality
     if debug:
         print("Downloading...")
     #create the sub dir
@@ -100,16 +101,35 @@ def download(dir_name, global_id, base, API_key_html=""):
     file_path = dl_path + "/dataverse_files.zip"
 
     #TODO: Check if file needs API and if so, give propper error
-    
+
+    dl_url = base + '/api/access/dataset/:persistentId?persistentId=' + global_id + API_key_html
+    if debug:
+        print(dl_url)
     #check if the files is already downloaded
     if os.path.exists(file_path):
         print("File already exists")
+    elif req_orig:
+        # download the original files
+        if debug:
+            print("Downloading original files")
+        meta_url = 'https://' + base + '/api/datasets/:persistentId/?persistentId=' + global_id + API_key_html
+        #print("meta URL: {}".format(meta_url))
+        response = requests.get(meta_url)
+        data = response.json()
+        if data['status'] != 'OK':
+            print(data['status'])
+            sys.exit()
+        for i in data['data']['latestVersion']['files']:
+            print(i['label'])
+            print(i['dataFile']['id']) #this is the file id (database ID)
+            # TODO: try to download using this file ID
+            # URI Format:
+            # 'https://' + base + '/api/access/datafile/' + str(file_id) + '?format=original'
+        pass
     else:
         #download the file
-        dl_url = base + '/api/access/dataset/:persistentId?persistentId=' + global_id + API_key_html
         if debug:
-            print(dl_url)
-        #print(dl_path)
+            print(dl_path)
         os.system("wget -nc --content-disposition -P '{}' '{}'".format(dl_path, dl_url))
         #print("wget --content-disposition -P '{}' '{}'".format(dl_path, dl_url))
         if unzip:
@@ -148,6 +168,7 @@ def search_and_dl(instance, search_term, API_key_html=''):
         for i in data['data']['items']:
             print("- ", i['name'], "(" + i['type'] + ")")
             download(i['name'], i['global_id'], instance)
+            sys.exit() # for testing purposes
             pass
         start = start + rows
         page += 1
