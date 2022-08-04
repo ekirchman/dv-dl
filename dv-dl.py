@@ -11,32 +11,59 @@ import configparser
 # default values 
 unzip = False
 clobber = False
+debug = True
+
+class dvinstance:
+    def __init__(self, name, api, ):
+        self.name = name
+        self.api = api
 
 # Read in API Key per dataverse instance
-def read_conf(instance_name):
+# API_req specifies if an API is required to be in the config or not
+def read_conf(instance_name = "", API_req = True):
 
+    #TODO check all options and make sure a config file is not required
     #read conf if present
     if os.path.exists('dv-dl.conf'):
+
         #instance is string of dataverse url base
         config = configparser.ConfigParser()
         config.read('dv-dl.conf')
-        
+
+        # if instance is not specified, default to the first option
+        if(instance_name is None):
+            try:
+                instance_name = config.sections()[0]
+                if debug:
+                    print("Defaulting to use instance {}".format(instance_name))
+            except:
+                print("ERROR: No instances found in section headers of config file")
+            if debug:
+                print(instance_name)
+
         # Check if instance is found in config
         if instance_name in config:
             
             #Check if API is found for instance
             try:
-                config.get(instance_name, 'API')
+                API_key = config.get(instance_name, 'API')
             except:
-                print("ERROR: API for '{}' not found in config file".format(instance_name))
-                sys.exit(1)
+                if API_req:
+                    print("ERROR: API for '{}' not found in config file".format(instance_name))
+                    sys.exit(1)
+                API_key = ""
+                pass
         else:
             print("ERROR: '{}' not found in config file".format(instance_name))
             sys.exit(1)
             
-        API_key = config[instance_name]['API']
-        API_key_html = "&key=" + API_key
-        return API_key_html
+        #API_key = config.get(instance_name, 'API')
+        #API_key_html = "&key=" + API_key
+        inst1 = dvinstance(instance_name, API_key)
+        if debug:
+            print(inst1.name)
+            print(inst1.api)
+        return inst1
     else:
         print("WARN: no conf file found")
 
@@ -52,7 +79,8 @@ def create_dir_if_not_exist(path):
         try:
             os.mkdir(path)
         except OSError as error:
-            sys.exit(1)
+            # dir already exists
+            pass
 
 # Initalize parent directory
 def init_dir():
@@ -61,7 +89,9 @@ def init_dir():
     create_dir_if_not_exist(path)
 
 ##Download to folder
-def download(dir_name, global_id, API_key_html=""):
+def download(dir_name, global_id, base, API_key_html=""):
+    if debug:
+        print("Downloading...")
     #create the sub dir
     parent_dir = os.getcwd()
     parent_dir = os.path.join(parent_dir, "dataverse_datasets")
@@ -77,7 +107,8 @@ def download(dir_name, global_id, API_key_html=""):
     else:
         #download the file
         dl_url = base + '/api/access/dataset/:persistentId?persistentId=' + global_id + API_key_html
-        #print(dl_url)
+        if debug:
+            print(dl_url)
         #print(dl_path)
         os.system("wget -nc --content-disposition -P '{}' '{}'".format(dl_path, dl_url))
         #print("wget --content-disposition -P '{}' '{}'".format(dl_path, dl_url))
@@ -88,6 +119,9 @@ def download(dir_name, global_id, API_key_html=""):
 
 
 def search_and_dl(instance, search_term, API_key_html=''):
+    if debug:
+        print("Searching {} for '{}'".format(instance, search_term))
+
     init_dir()
     rows = 10
     start = 0
@@ -113,7 +147,7 @@ def search_and_dl(instance, search_term, API_key_html=''):
         print("start:", start, " total:", total)
         for i in data['data']['items']:
             print("- ", i['name'], "(" + i['type'] + ")")
-            download(i['name'], i['global_id'])
+            download(i['name'], i['global_id'], instance)
             pass
         start = start + rows
         page += 1
@@ -127,36 +161,29 @@ def parse_URL_get_DOI():
     pass
 
 def subcmd_search(args):
-    #print("subcmd_search")
-    if args.instance is None:
-        print("no instance provided")
-        print("usage: --instance INSTANCE") #This should really print the usage statement
-        parser.print_usage()
-        sys.exit()
-    else:
-        # Read API Key if present in config
-        API_key_html = read_conf(args.instance)
-        instance = args.instance
-        search_term = format_query(args.search_term)
-        search_and_dl(instance = instance, search_term = search_term, API_key_html = API_key_html)
+    # Read API Key if present in config
+    inst1 = read_conf(args.instance, API_req = True)
+    API_key_html = "&key=" + inst1.api
+    if debug:
+        print(API_key_html)
+    instance = inst1.name
+    search_term = format_query(args.search_term)
+    search_and_dl(instance = instance, search_term = search_term, API_key_html = API_key_html)
 
 def subcmd_download(args):
 
     path = os.getcwd()
-    if args.instance is None:
-        print("no instance provided")
-        print("usage: --instance INSTANCE") #This should really print the usage statement
-        sys.exit()
-    else:
         
-        # Read API Key if present in config
-        API_key_html = read_conf(args.instance)
-    
-        if args.doi:
-            download(path, args.doi, API_key_html)
-        elif args.url:
-            DOI = parse_URL_get_DOI()
-            download(path, DOI)
+    # Read API Key if present in config
+    inst1 = read_conf(args.instance, API_req = True) # set to true unless can figure out if download needs API
+    API_key_html = "&key=" + inst1.api
+    if debug:
+        print(API_key_html)
+    if args.doi:
+        download(path, args.doi, inst1.name, API_key_html)
+    elif args.url:
+        DOI = parse_URL_get_DOI()
+        download(path, DOI)
         
 def main():
 
@@ -182,7 +209,7 @@ def main():
     parser_search.add_argument('--per_page', type=int, default=10, help='The number of results to return per request. The default is 10, the max is 1000')
     parser_search.add_argument('--start', type=int, help='A cursor for paging through search results')
     parser_search.add_argument('--fq', help='Filter query')
-    parser_search.add_argument('--instance', help='Dataverse instance', required=True)
+    parser_search.add_argument('--instance', help='Dataverse instance')
     
     # Extended search params for dv-dl
     
@@ -195,7 +222,7 @@ def main():
     
     # create the parser for the "download" command
     parser_download = subparsers.add_parser('download', help='Download individual datasets')
-    parser_download.add_argument('--instance', help='Dataverse instance', required=True)
+    parser_download.add_argument('--instance', help='Dataverse instance')
     parser_download.set_defaults(func=subcmd_download)
 
     # Create a group for mutally exclusive options DOI and URL for download subcommand

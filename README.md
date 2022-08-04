@@ -4,7 +4,7 @@ A small python download script for downloading datasets from the Dataverse Proje
 ## Installation
 
 1. Clone or download this repo from master
-2. ownload the requirements
+2. Download the requirements
    1. `pip install requirements.txt`
 
 ## Setting your API Key
