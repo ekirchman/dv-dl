@@ -191,7 +191,7 @@ def main():
     # create the top-level parser
     parser = argparse.ArgumentParser()
     parser = argparse.ArgumentParser(description='A download tool for Dataverse instances')
-    subparsers = parser.add_subparsers(help='sub-command help')
+    subparsers = parser.add_subparsers(help='sub-command help', dest='subcommand')
 
     
     # Parser for download subcommand
@@ -232,9 +232,11 @@ def main():
 
     #calls subcmd_download, subcmd_search, or any other subcmd_* function created
     args = parser.parse_args()
-    if args.func:
+
+    if args.subcommand is None:
+        parser.print_help()
+    else:
         args.func(args)
-    
     
 #Start script
 main()
