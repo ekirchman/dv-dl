@@ -9,6 +9,8 @@ A small python download script for downloading datasets from the Dataverse Proje
 
 ## Setting your API Key
 
+Get an API key using this (reference)[https://guides.dataverse.org/en/5.3/api/auth.html]
+
 Create a config file in the same location as dv-dl.py called `dv-dl.conf`. The formate should look like this:
 
 ```
