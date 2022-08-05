@@ -4,14 +4,13 @@ import json
 import pprint
 import os
 import re
-import sys #sys.exit() and calling wget
+import sys #sys.exit()
 import zipfile
 import argparse
 import configparser
 
 # default values 
 unzip = False
-clobber = False
 debug = True
 
 class dvinstance:
@@ -90,10 +89,10 @@ def init_dir():
     create_dir_if_not_exist(path)
 
 ##Download to folder
-def download(dir_name, global_id, base, API_key_html=""):
-    req_orig = False # Change this to 'True' when testing original file download functionality
+def download(dir_name, global_id, base, API_key_html="", req_orig=False):
     if debug:
         print("Downloading...")
+        print(req_orig)
     #create the sub dir
     parent_dir = os.getcwd()
     parent_dir = os.path.join(parent_dir, "dataverse_datasets")
@@ -106,11 +105,10 @@ def download(dir_name, global_id, base, API_key_html=""):
     dl_url = base + '/api/access/dataset/:persistentId?persistentId=' + global_id + API_key_html
     if debug:
         print(dl_url)
-    #check if the files is already downloaded
-    if os.path.exists(file_path):
-        print("File already exists")
-    elif req_orig:
+    if req_orig:
         # download the original files
+        # NOTE: Right now, dv-dl will not check if original files are already downloaded or not
+        # This will be fixed when checksums are implemented
         if debug:
             print("Downloading original files")
         meta_url = 'https://' + base + '/api/datasets/:persistentId/?persistentId=' + global_id + API_key_html
@@ -135,6 +133,9 @@ def download(dir_name, global_id, base, API_key_html=""):
                 os.system("wget -nc --content-disposition -P '{}' '{}'".format(dl_path, dl_url))
             #Note: Manifest is not downloaded, but for now, it's not really neccesary.
         pass
+    #check if the files is already downloaded
+    elif os.path.exists(file_path):
+        print("File already exists")
     else:
         #download the file
         if debug:
@@ -147,7 +148,7 @@ def download(dir_name, global_id, base, API_key_html=""):
                 zip_ref.extractall(extract_path)
 
 
-def search_and_dl(instance, search_term, API_key_html=''):
+def search_and_dl(instance, search_term, API_key_html='', req_orig = False):
     if debug:
         print("Searching {} for '{}'".format(instance, search_term))
 
@@ -176,7 +177,7 @@ def search_and_dl(instance, search_term, API_key_html=''):
         print("start:", start, " total:", total)
         for i in data['data']['items']:
             print("- ", i['name'], "(" + i['type'] + ")")
-            download(i['name'], i['global_id'], instance)
+            download(i['name'], i['global_id'], instance, req_orig = req_orig)
             sys.exit() # for testing purposes
             pass
         start = start + rows
@@ -198,11 +199,13 @@ def subcmd_search(args):
         print(API_key_html)
     instance = inst1.name
     search_term = format_query(args.search_term)
-    search_and_dl(instance = instance, search_term = search_term, API_key_html = API_key_html)
+    req_orig = args.original
+    search_and_dl(instance = instance, search_term = search_term, API_key_html = API_key_html, req_orig = req_orig)
 
 def subcmd_download(args):
 
     path = os.getcwd()
+    req_orig = args.original
         
     # Read API Key if present in config
     inst1 = read_conf(args.instance, API_req = True) # set to true unless can figure out if download needs API
@@ -210,7 +213,7 @@ def subcmd_download(args):
     if debug:
         print(API_key_html)
     if args.doi:
-        download(path, args.doi, inst1.name, API_key_html)
+        download(path, args.doi, inst1.name, API_key_html, req_orig = req_orig)
     elif args.url:
         DOI = parse_URL_get_DOI()
         download(path, DOI)
@@ -223,6 +226,9 @@ def main():
     parser = argparse.ArgumentParser(description='A download tool for Dataverse instances')
     subparsers = parser.add_subparsers(help='sub-command help', dest='subcommand')
 
+    # Global arguments
+    parser.add_argument('--instance', help='Dataverse instance')
+    parser.add_argument('--original', help='Specify that the original files should be fetched', action="store_true")
     
     # Parser for download subcommand
     parser_search = subparsers.add_parser('search', help='Search and download datasets. Defaults to generic query')
@@ -239,7 +245,6 @@ def main():
     parser_search.add_argument('--per_page', type=int, default=10, help='The number of results to return per request. The default is 10, the max is 1000')
     parser_search.add_argument('--start', type=int, help='A cursor for paging through search results')
     parser_search.add_argument('--fq', help='Filter query')
-    parser_search.add_argument('--instance', help='Dataverse instance')
     
     # Extended search params for dv-dl
     
@@ -252,7 +257,6 @@ def main():
     
     # create the parser for the "download" command
     parser_download = subparsers.add_parser('download', help='Download individual datasets')
-    parser_download.add_argument('--instance', help='Dataverse instance')
     parser_download.set_defaults(func=subcmd_download)
 
     # Create a group for mutally exclusive options DOI and URL for download subcommand
