@@ -92,7 +92,7 @@ def init_dir():
 def download(dir_name, global_id, base, API_key_html="", req_orig=False):
     if debug:
         print("Downloading...")
-        print(req_orig)
+        print("download() req_orig: {}".format(req_orig))
     #create the sub dir
     parent_dir = os.getcwd()
     parent_dir = os.path.join(parent_dir, "dataverse_datasets")
@@ -114,6 +114,10 @@ def download(dir_name, global_id, base, API_key_html="", req_orig=False):
         meta_url = 'https://' + base + '/api/datasets/:persistentId/?persistentId=' + global_id + API_key_html
         response = requests.get(meta_url)
         data = response.json()
+        # get title name to create dir name from
+        title = (data['data']['latestVersion']['metadataBlocks']['citation']['fields'][0]['value'])
+        # TODO: Clean this up so that all files are put in ./dataverse_datasets/{title}/{files}
+        dl_path = dl_path + '/dataverse_datasets/' + title + ' - ' + global_id + '/'
         if data['status'] != 'OK':
             print(data['status'])
             sys.exit()
@@ -132,7 +136,7 @@ def download(dir_name, global_id, base, API_key_html="", req_orig=False):
                 os.system("wget -nc --content-disposition -P '{}' '{}'".format(dl_path, dl_url))
             # Note: Manifest is not downloaded, but for now, it's not really neccesary.
         pass
-    # check if the files is already downloaded
+    # check if the files are already downloaded
     elif os.path.exists(file_path):
         print("File already exists")
     else:
