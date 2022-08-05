@@ -17,8 +17,7 @@ Create a config file in the same location as dv-dl.py called `dv-dl.conf`. The f
 [demo.dataverse.org]
 API = MY_API_KEY_GOES_HERE
 ```
-
-Multiple sub headers (instances) can be put in the config file. If not specified in a cli arg, the first instanace is selected
+Subheaders should be should be a real instance of dataverse, minus the UNC (http:// | https://). For instance, UNC's dataverse instance is `dataverse.unc.edu`. Multiple sub headers (instances) can be put in the config file. If not specified in a cli arg, the first instanace is selected
 
 ## Usage
 
