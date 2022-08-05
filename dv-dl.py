@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import requests
 import json
 import pprint
@@ -120,11 +121,19 @@ def download(dir_name, global_id, base, API_key_html=""):
             print(data['status'])
             sys.exit()
         for i in data['data']['latestVersion']['files']:
-            print(i['label'])
-            print(i['dataFile']['id']) #this is the file id (database ID)
-            # TODO: try to download using this file ID
-            # URI Format:
-            # 'https://' + base + '/api/access/datafile/' + str(file_id) + '?format=original'
+            # i['dataFile']['id']) #this is the file id (database ID)
+
+            dl_url = 'https://' + base + '/api/access/datafile/' + str(i['dataFile']['id'])
+            file_name = i['label'] # filename of archived file 
+            # Files which don't have an original file type will return a 404 when trying to
+            # request the original format. So check if the file is a tab (archive file) before
+            # attempting to download
+            if file_name[-4:] == ".tab":
+                dl_url = dl_url + '?format=original'
+                os.system("wget -nc --content-disposition -P '{}' '{}'".format(dl_path, dl_url))
+            else:
+                os.system("wget -nc --content-disposition -P '{}' '{}'".format(dl_path, dl_url))
+            #Note: Manifest is not downloaded, but for now, it's not really neccesary.
         pass
     else:
         #download the file
