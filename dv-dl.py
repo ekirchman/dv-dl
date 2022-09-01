@@ -88,11 +88,11 @@ def init_dir():
     path = os.path.join(parent_dir, "dataverse_datasets")
     create_dir_if_not_exist(path)
 
-##Download to folder
+# Download to folder
 def download(dir_name, global_id, base, API_key_html="", req_orig=False):
     if debug:
         print("Downloading...")
-        print(req_orig)
+        print("download() req_orig: {}".format(req_orig))
     #create the sub dir
     parent_dir = os.getcwd()
     parent_dir = os.path.join(parent_dir, "dataverse_datasets")
@@ -112,14 +112,17 @@ def download(dir_name, global_id, base, API_key_html="", req_orig=False):
         if debug:
             print("Downloading original files")
         meta_url = 'https://' + base + '/api/datasets/:persistentId/?persistentId=' + global_id + API_key_html
-        #print("meta URL: {}".format(meta_url))
         response = requests.get(meta_url)
         data = response.json()
+        # get title name to create dir name from
+        title = (data['data']['latestVersion']['metadataBlocks']['citation']['fields'][0]['value'])
+        # TODO: Clean this up so that all files are put in ./dataverse_datasets/{title}/{files}
+        dl_path = dl_path + '/dataverse_datasets/' + title + ' - ' + global_id + '/'
         if data['status'] != 'OK':
             print(data['status'])
             sys.exit()
         for i in data['data']['latestVersion']['files']:
-            # i['dataFile']['id']) #this is the file id (database ID)
+            # i['dataFile']['id']) is the file id (database ID)
 
             dl_url = 'https://' + base + '/api/access/datafile/' + str(i['dataFile']['id'])
             file_name = i['label'] # filename of archived file 
@@ -131,17 +134,16 @@ def download(dir_name, global_id, base, API_key_html="", req_orig=False):
                 os.system("wget -nc --content-disposition -P '{}' '{}'".format(dl_path, dl_url))
             else:
                 os.system("wget -nc --content-disposition -P '{}' '{}'".format(dl_path, dl_url))
-            #Note: Manifest is not downloaded, but for now, it's not really neccesary.
+            # Note: Manifest is not downloaded, but for now, it's not really neccesary.
         pass
-    #check if the files is already downloaded
+    # check if the files are already downloaded
     elif os.path.exists(file_path):
         print("File already exists")
     else:
-        #download the file
+        # download the file
         if debug:
             print(dl_path)
         os.system("wget -nc --content-disposition -P '{}' '{}'".format(dl_path, dl_url))
-        #print("wget --content-disposition -P '{}' '{}'".format(dl_path, dl_url))
         if unzip:
             with zipfile.ZipFile(file_path, 'r') as zip_ref:
                 extract_path = os.path.join(dl_path + "/extract/")
@@ -185,10 +187,16 @@ def search_and_dl(instance, search_term, API_key_html='', req_orig = False):
         condition = start < total
         condition = False #For testing only and artificial limiter
 
-def parse_URL_get_DOI():
-    # TODO
-    print("parse_URL_get_DOI not implemented yet")
-    sys.exit()
+# Parse a URL containing a DOI to get the DOI
+def parse_URL_get_DOI(url):
+    pattern = "(10\.\d{4,5}\/[\S]+[^;,.\s])"
+    if bool(re.search(pattern, url)):
+        result = re.search(pattern, url)
+    else:
+        # If a DOI cannot be found, print an error
+        print("Could not find DOI in URL")
+        sys.exit(1)
+    return result.group()
     pass
 
 def subcmd_search(args):
@@ -215,8 +223,9 @@ def subcmd_download(args):
     if args.doi:
         download(path, args.doi, inst1.name, API_key_html, req_orig = req_orig)
     elif args.url:
-        DOI = parse_URL_get_DOI()
-        download(path, DOI)
+        url = args.url
+        parsed_DOI = parse_URL_get_DOI(url)
+        download(path, parsed_DOI, inst1.name, API_key_html, req_orig = req_orig)
         
 def main():
 
@@ -273,4 +282,6 @@ def main():
         args.func(args)
     
 #Start script
-main()
+#main()
+if __name__ == '__main__':
+    main()
